@@ -8,9 +8,10 @@ anchors_preset = 0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 540.0
-offset_top = 278.0
-offset_right = 654.0
-offset_bottom = 301.0
+offset_left = 351.0
+offset_top = 173.0
+offset_right = 465.0
+offset_bottom = 196.0
+scale = Vector2(4.63419, 6.87927)
 text = "HELLO WORLD"
 script = ExtResource("1_6e84v")
