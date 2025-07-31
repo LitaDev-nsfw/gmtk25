@@ -7,9 +7,11 @@ var level4 : PackedScene = preload("res://scenes/level_4.tscn")
 @onready var level_1: Level = $Level1
 
 @onready var player: Player = $Player
+@onready var timer: Timer = $UI/Timer
 
 func _ready() -> void:
 	level_1.connect("change_level", _on_player_change_level)
+	level_1.connect("add_time_to_loop", update_loop_time)
 	
 func _on_player_change_level() -> void:
 	var current_level = find_level()
@@ -34,6 +36,7 @@ func _on_player_change_level() -> void:
 func create_next_level(level_scene : PackedScene) -> Level:
 	var level : Level = level_scene.instantiate()
 	level.connect("change_level", _on_player_change_level)
+	level.connect("add_time_to_loop", update_loop_time)
 	return level
 	
 func find_level() -> Node:
@@ -49,3 +52,6 @@ func _on_timer_timeout() -> void:
 	level_node.name = "Level-1"
 	call_deferred("add_child", level_node)
 	player.reset_pos()
+
+func update_loop_time(added_time : int) -> void:
+	timer.wait_time += added_time # TODO, this will only add time to the total timer, the current loop wont be affected
