@@ -17,3 +17,6 @@ offset_top = -49.0
 offset_right = 89.0
 offset_bottom = -26.0
 text = "Interact. (E)"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

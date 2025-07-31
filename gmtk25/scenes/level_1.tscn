@@ -1,17 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://do7a5j4m5dryv"]
+[gd_scene load_steps=5 format=3 uid="uid://do7a5j4m5dryv"]
 
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_bswci"]
+[ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_rus8k"]
 [ext_resource type="PackedScene" uid="uid://d3apiw34m0up3" path="res://scenes/collision_component.tscn" id="2_rus8k"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_rus8k"]
+font_size = 40
+
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_rus8k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(570, 304)
-scale = Vector2(9.20125, 5.67275)
+modulate = Color(1, 0.239216, 1, 1)
+position = Vector2(961, 544)
+scale = Vector2(15.263, 8.93256)
 texture = ExtResource("1_bswci")
 
 [node name="Puzzle" type="Node2D" parent="."]
-position = Vector2(478, 163)
+position = Vector2(1424, 495)
 
 [node name="CollisionComponent" parent="Puzzle" instance=ExtResource("2_rus8k")]
 
@@ -19,3 +25,13 @@ position = Vector2(478, 163)
 position = Vector2(-5, 6)
 scale = Vector2(0.568306, 0.521752)
 texture = ExtResource("1_bswci")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 920.0
+offset_top = 123.0
+offset_right = 960.0
+offset_bottom = 146.0
+text = "LEVEL1"
+label_settings = SubResource("LabelSettings_rus8k")
+
+[connection signal="change_level" from="Puzzle/CollisionComponent" to="." method="_on_change_level"]

@@ -1,7 +1,8 @@
 extends CharacterBody2D
-
+class_name Player
 const SPEED = 300.0
 signal change_level
+
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	var direction_y := Input.get_axis("ui_up", "ui_down")
@@ -23,8 +24,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("AWOOOGOA")
-	change_level.emit()
+	pass# change_level.emit()
 
 func reset_pos() -> void:
-	position = Vector2(0,0)
+	var tween = create_tween()
+	tween.tween_property(self, "position", Vector2(0,0), 0.5)
