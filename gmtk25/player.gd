@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-
+signal change_level
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	var direction_y := Input.get_axis("ui_up", "ui_down")
@@ -24,3 +24,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print("AWOOOGOA")
+	change_level.emit()
+
+func reset_pos() -> void:
+	position = Vector2(0,0)

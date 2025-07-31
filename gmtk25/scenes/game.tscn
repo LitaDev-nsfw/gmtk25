@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxm1ciglp7qh0"]
+
+[ext_resource type="Script" uid="uid://2brnat7foo8u" path="res://scripts/game.gd" id="1_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://do7a5j4m5dryv" path="res://scenes/level_1.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://hbhc16eqvpv2" path="res://scenes/player.tscn" id="3_p57ef"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_lbhrr")
+
+[node name="Player" parent="." instance=ExtResource("3_p57ef")]
+top_level = true
+
+[node name="Level1" parent="." instance=ExtResource("2_lnu2h")]
+
+[connection signal="change_level" from="Player" to="." method="_on_player_change_level"]

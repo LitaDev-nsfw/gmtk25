@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://do7a5j4m5dryv"]
+
+[ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_bswci"]
+[ext_resource type="PackedScene" uid="uid://d3apiw34m0up3" path="res://scenes/collision_component.tscn" id="2_rus8k"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(570, 304)
+scale = Vector2(9.20125, 5.67275)
+texture = ExtResource("1_bswci")
+
+[node name="Puzzle" type="Node2D" parent="."]
+position = Vector2(478, 163)
+
+[node name="CollisionComponent" parent="Puzzle" instance=ExtResource("2_rus8k")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Puzzle"]
+position = Vector2(-5, 6)
+scale = Vector2(0.568306, 0.521752)
+texture = ExtResource("1_bswci")
