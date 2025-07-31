@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://2brnat7foo8u" path="res://scripts/level.gd" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://hbhc16eqvpv2" path="res://scenes/player.tscn" id="3_w8frs"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
+[ext_resource type="PackedScene" uid="uid://d3apiw34m0up3" path="res://scenes/collision_component.tscn" id="4_mx8sn"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_w7c3h")
@@ -16,9 +15,12 @@ texture = ExtResource("1_2q6dc")
 
 [node name="Player" parent="." instance=ExtResource("3_w8frs")]
 
-[node name="Puzzle" type="Area2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
 position = Vector2(478, 163)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle"]
-scale = Vector2(8.50666, 8.76057)
-shape = SubResource("RectangleShape2D_w8frs")
+[node name="CollisionComponent" parent="Node2D" instance=ExtResource("4_mx8sn")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(-5, 6)
+scale = Vector2(0.568306, 0.521752)
+texture = ExtResource("1_2q6dc")

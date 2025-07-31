@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3apiw34m0up3"]
+
+[ext_resource type="Script" uid="uid://beud8guf1hd1w" path="res://scripts/collision_component.gd" id="1_or7wo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7ot4"]
+size = Vector2(207, 100)
+
+[node name="CollisionComponent" type="Area2D"]
+script = ExtResource("1_or7wo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_g7ot4")
+
+[node name="Label" type="Label" parent="."]
+offset_top = -49.0
+offset_right = 89.0
+offset_bottom = -26.0
+text = "Interact. (E)"
