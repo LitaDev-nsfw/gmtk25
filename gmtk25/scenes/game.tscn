@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxm1ciglp7qh0"]
+[gd_scene load_steps=7 format=3 uid="uid://cxm1ciglp7qh0"]
 
 [ext_resource type="Script" uid="uid://2brnat7foo8u" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://do7a5j4m5dryv" path="res://scenes/level_1.tscn" id="2_lnu2h"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_lnu2h"]
 font_size = 50
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(82.9847, 20)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lbhrr")
@@ -21,7 +24,7 @@ scale = Vector2(0.979959, 0.957046)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Timer" type="Timer" parent="UI"]
-wait_time = 20.0
+wait_time = 60.0
 autostart = true
 
 [node name="Label" type="Label" parent="UI/Timer"]
@@ -34,5 +37,28 @@ text = "60
 label_settings = SubResource("LabelSettings_lnu2h")
 script = ExtResource("4_lbhrr")
 
-[connection signal="change_level" from="Player" to="." method="_on_player_change_level"]
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(964, 0)
+scale = Vector2(23.2573, 2.61271)
+shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(974, 1089)
+scale = Vector2(23.2573, 2.61271)
+shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-33.0001, 542)
+rotation = -1.56659
+scale = Vector2(17.1748, 5.82034)
+shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1867, 511)
+rotation = 1.56721
+scale = Vector2(19.9547, 7.19743)
+shape = SubResource("RectangleShape2D_lbhrr")
+
 [connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]

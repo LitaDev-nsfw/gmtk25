@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_h23n6"]
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_uwxec"]
-[ext_resource type="PackedScene" uid="uid://d3apiw34m0up3" path="res://scenes/collision_component.tscn" id="2_uwxec"]
+[ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/puzzle.tscn" id="3_uwxec"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uwxec"]
 font_size = 40
@@ -16,16 +16,6 @@ position = Vector2(961, 544)
 scale = Vector2(15.263, 8.93256)
 texture = ExtResource("1_h23n6")
 
-[node name="Puzzle" type="Node2D" parent="."]
-position = Vector2(1424, 495)
-
-[node name="CollisionComponent" parent="Puzzle" instance=ExtResource("2_uwxec")]
-
-[node name="Sprite2D" type="Sprite2D" parent="Puzzle"]
-position = Vector2(-5, 6)
-scale = Vector2(0.568306, 0.521752)
-texture = ExtResource("1_h23n6")
-
 [node name="Label" type="Label" parent="."]
 offset_left = 920.0
 offset_top = 123.0
@@ -34,4 +24,7 @@ offset_bottom = 146.0
 text = "LEVEL1"
 label_settings = SubResource("LabelSettings_uwxec")
 
-[connection signal="change_level" from="Puzzle/CollisionComponent" to="." method="_on_change_level"]
+[node name="Puzzle" parent="." instance=ExtResource("3_uwxec")]
+position = Vector2(529, 166)
+
+[connection signal="change_level" from="Puzzle" to="." method="_change_level"]

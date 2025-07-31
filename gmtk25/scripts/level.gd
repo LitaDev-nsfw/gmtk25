@@ -6,13 +6,14 @@ signal add_time_to_loop
 @onready var label : Label = $Label
 
 func _ready() -> void:
-	if label:
+	if label: # set the level name for debugging
 		label.text = name
 		label.position = Vector2(920.0, 123)
-		
-func _on_change_level() -> void:
-	change_level.emit()
-	add_time(5)
 
+# some action in the level will add time to the loop		
 func add_time(added_time : int) -> void:
 	add_time_to_loop.emit(added_time)
+
+# called by each levels puzzle
+func _change_level() -> void:
+	change_level.emit() # will be recieved by game.gd

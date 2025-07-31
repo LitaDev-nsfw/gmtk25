@@ -15,11 +15,14 @@ func _ready() -> void:
 	
 func _on_player_change_level() -> void:
 	var current_level = find_level()
+	var current_level_name = current_level.name
 	if current_level:
 		remove_child(current_level)
+		current_level.queue_free()
 		var level_node : Level = null
-		## logic to decide the next level
-		match (current_level.name):
+		
+		# there will be special logic in some cases, ie, go from lvl2 to lvl2 again.
+		match (current_level_name):
 			"Level1":
 				level_node = create_next_level(level2)
 			"Level2":
@@ -48,8 +51,13 @@ func is_level(el: Node) -> bool:
 
 func _on_timer_timeout() -> void:
 	# TODO, this will get more complicated as we add more puzzles because we may need to reset some variables later.
+	var current_level = find_level()
+	if current_level:
+		remove_child(current_level)
+		current_level.queue_free()
+		
 	var level_node = level1.instantiate()
-	level_node.name = "Level-1"
+	level_node.name = "Level1"
 	call_deferred("add_child", level_node)
 	player.reset_pos()
 
