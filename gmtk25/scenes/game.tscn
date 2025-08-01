@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://hbhc16eqvpv2" path="res://scenes/player.tscn" id="3_p57ef"]
 [ext_resource type="Script" uid="uid://diekl7drknjbv" path="res://scripts/loop_timer_label.gd" id="4_lbhrr"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_lnu2h"]
-font_size = 50
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
 size = Vector2(82.9847, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lnu2h"]
+font_size = 50
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lbhrr")
@@ -20,22 +20,6 @@ position = Vector2(946, 569)
 scale = Vector2(0.979959, 0.957046)
 
 [node name="Level1" parent="." instance=ExtResource("2_lnu2h")]
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Timer" type="Timer" parent="UI"]
-wait_time = 60.0
-autostart = true
-
-[node name="Label" type="Label" parent="UI/Timer"]
-offset_left = 32.0
-offset_top = 48.0
-offset_right = 89.0
-offset_bottom = 189.0
-text = "60
-"
-label_settings = SubResource("LabelSettings_lnu2h")
-script = ExtResource("4_lbhrr")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -60,5 +44,29 @@ position = Vector2(1867, 511)
 rotation = 1.56721
 scale = Vector2(19.9547, 7.19743)
 shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Timer" parent="UI"]
+wait_time = 60.0
+autostart = true
+
+[node name="Label" type="Label" parent="UI/Timer"]
+offset_left = 32.0
+offset_top = 48.0
+offset_right = 89.0
+offset_bottom = 189.0
+text = "60
+"
+label_settings = SubResource("LabelSettings_lnu2h")
+script = ExtResource("4_lbhrr")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
+bus = &"Music"
+
+[node name="LoopSound" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
 
 [connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]

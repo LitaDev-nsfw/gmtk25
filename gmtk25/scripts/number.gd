@@ -26,7 +26,6 @@ func _input(event: InputEvent) -> void:
 		
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and reading == false:
-		print(name)
 		reading = true
 		modulate = Color.YELLOW
 		await get_tree().create_timer(5).timeout

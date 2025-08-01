@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtnnhjmopedsx"]
+[gd_scene load_steps=6 format=3 uid="uid://dtnnhjmopedsx"]
 
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_jm1iu"]
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_pbc48"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/puzzle.tscn" id="3_pbc48"]
+[ext_resource type="PackedScene" uid="uid://iyjbjehrlpil" path="res://scenes/paiting.tscn" id="4_eqxsl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbc48"]
 font_size = 40
@@ -18,6 +19,7 @@ texture = ExtResource("1_jm1iu")
 
 [node name="Puzzle" parent="." instance=ExtResource("3_pbc48")]
 position = Vector2(1452, 902)
+puzzle = ExtResource("4_eqxsl")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 920.0

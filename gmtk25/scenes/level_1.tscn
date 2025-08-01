@@ -27,4 +27,9 @@ offset_bottom = 146.0
 text = "LEVEL1"
 label_settings = SubResource("LabelSettings_rus8k")
 
+[node name="Audio" type="Node" parent="."]
+
+[node name="Voices" type="AudioStreamPlayer2D" parent="Audio"]
+position = Vector2(1744, 947)
+
 [connection signal="change_level" from="Puzzle" to="." method="_change_level"]

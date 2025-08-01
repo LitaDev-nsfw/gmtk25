@@ -8,6 +8,8 @@ var level4 : PackedScene = preload("res://scenes/level_4.tscn")
 
 @onready var player: Player = $Player
 @onready var timer: Timer = $UI/Timer
+@onready var background_music: AudioStreamPlayer = $Audio/BackgroundMusic
+@onready var loop_sound: AudioStreamPlayer = $Audio/LoopSound
 
 func _ready() -> void:
 	level_1.connect("change_level", _on_player_change_level)
@@ -60,6 +62,7 @@ func _on_timer_timeout() -> void:
 	level_node.name = "Level1"
 	call_deferred("add_child", level_node)
 	player.reset_pos()
+	loop_sound.play()
 
 func update_loop_time(added_time : int) -> void:
 	timer.wait_time += added_time # TODO, this will only add time to the total timer, the current loop wont be affected
