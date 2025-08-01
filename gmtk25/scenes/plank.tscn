@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgmlaxh2mxy62"]
+
+[ext_resource type="Script" uid="uid://cspdeocc1r013" path="res://scripts/plank.gd" id="1_jmhrc"]
+[ext_resource type="PackedScene" uid="uid://d3apiw34m0up3" path="res://scenes/collision_component.tscn" id="2_0arx4"]
+[ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="2_opdqs"]
+
+[node name="Plank" type="Node2D"]
+script = ExtResource("1_jmhrc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.647059, 0.164706, 0.164706, 1)
+scale = Vector2(1.57971, 0.3125)
+texture = ExtResource("2_opdqs")
+
+[node name="CollisionComponent" parent="." instance=ExtResource("2_0arx4")]
+
+[connection signal="open_puzzle" from="CollisionComponent" to="." method="_on_open_puzzle"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtnnhjmopedsx"]
+[gd_scene load_steps=8 format=3 uid="uid://dtnnhjmopedsx"]
 
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_jm1iu"]
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_pbc48"]
 [ext_resource type="AudioStream" uid="uid://43l4s4rrrdsk" path="res://assets/audio/music/GMTK Spooks.wav" id="2_b4j7a"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_pbc48"]
 [ext_resource type="PackedScene" uid="uid://djdf11yg2sdxx" path="res://scenes/paiting.tscn" id="4_eqxsl"]
+[ext_resource type="PackedScene" uid="uid://cgmlaxh2mxy62" path="res://scenes/plank.tscn" id="6_wo48x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbc48"]
 font_size = 40
@@ -32,5 +33,17 @@ offset_right = 960.0
 offset_bottom = 146.0
 text = "LEVEL1"
 label_settings = SubResource("LabelSettings_pbc48")
+
+[node name="Plank" parent="." instance=ExtResource("6_wo48x")]
+position = Vector2(548, 728)
+
+[node name="Plank2" parent="." instance=ExtResource("6_wo48x")]
+position = Vector2(325, 357)
+
+[node name="Plank3" parent="." instance=ExtResource("6_wo48x")]
+position = Vector2(854, 353)
+
+[node name="Plank4" parent="." instance=ExtResource("6_wo48x")]
+position = Vector2(1223, 741)
 
 [connection signal="change_level" from="Interactable" to="." method="_change_level"]

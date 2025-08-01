@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://hbhc16eqvpv2"]
+[gd_scene load_steps=7 format=3 uid="uid://hbhc16eqvpv2"]
 
 [ext_resource type="Script" uid="uid://cw1okpj8i6w2b" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="2_g2els"]
@@ -10,6 +10,10 @@ size = Vector2(126, 129)
 
 [sub_resource type="LabelSettings" id="LabelSettings_g2els"]
 font_size = 94
+
+[sub_resource type="LabelSettings" id="LabelSettings_qhqgy"]
+font_size = 161
+font_color = Color(0.819608, 0.0196078, 0.0196078, 1)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_3vyb7")
@@ -37,5 +41,20 @@ offset_bottom = -78.0
 scale = Vector2(0.159119, 0.162167)
 text = "I can't even look at it no more...."
 label_settings = SubResource("LabelSettings_g2els")
+
+[node name="Plank" type="Sprite2D" parent="."]
+modulate = Color(0.615349, 0.15379, 0.15408, 1)
+position = Vector2(-78, -68)
+scale = Vector2(0.432217, 0.464772)
+texture = ExtResource("2_g2els")
+
+[node name="PlankLabel" type="Label" parent="."]
+offset_left = -73.0
+offset_top = -157.0
+offset_right = 19.0
+offset_bottom = 64.0
+scale = Vector2(0.570003, 0.320564)
+text = "3"
+label_settings = SubResource("LabelSettings_qhqgy")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

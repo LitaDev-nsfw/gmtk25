@@ -2,9 +2,15 @@ extends CharacterBody2D
 class_name Player
 const SPEED = 400.0
 @onready var label: Label = $Label
+@onready var plank: Sprite2D = $Plank
+@onready var plank_label: Label = $PlankLabel
+var plank_count : int = 0
 
 func _ready() -> void:
+	EventSystem.connect("player_picked_up_plank", pick_up_plank)
+
 	label.hide()
+	plank.hide()
 	
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -44,3 +50,14 @@ func show_label() -> void:
 	await tween.tween_property(label, "modulate", Color.TRANSPARENT, 2).finished
 	label.hide()
 	label.modulate = Color.WHITE
+
+func pick_up_plank():
+	plank_count += 1
+	plank.show()
+	plank_label.text = str(plank_count)
+
+func place_plank():
+	plank_count -= 1
+	plank_label.text = str(plank_count)
+	if plank_count == 0:
+		plank.hide()
