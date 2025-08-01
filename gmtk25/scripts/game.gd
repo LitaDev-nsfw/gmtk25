@@ -17,6 +17,7 @@ var delta_sum : float = 0
 @onready var audio_manager: AudioManager = $Audio
 
 func _ready() -> void:
+	EventSystem.connect("play_mirror_line", show_player_label)
 	level_1.connect("change_level", _on_player_change_level)
 	level_1.connect("repeat_level", _repeat_level)
 	level_1.connect("add_time_to_loop", update_loop_time)
@@ -130,4 +131,3 @@ func transition_songs(next_level : Node, current_level : Node) -> void:
 		
 func show_player_label():
 	player.show_label()
-		

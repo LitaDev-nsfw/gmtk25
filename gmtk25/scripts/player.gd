@@ -3,13 +3,16 @@ class_name Player
 const SPEED = 400.0
 @onready var label: Label = $Label
 
+func _ready() -> void:
+	label.hide()
+	
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	var direction_y := Input.get_axis("ui_up", "ui_down")
 	
 	if direction and direction_y:
-		velocity.x = velocity.x / 2
-		velocity.y = velocity.y / 2
+		direction /= 1.5
+		direction_y /= 1.5
 	
 	if direction:
 		velocity.x = direction * SPEED
@@ -32,7 +35,12 @@ func reset_pos() -> void:
 	tween.tween_property(self, "position", Vector2(150, 150), 0.5)
 	
 func show_label() -> void:
+	label.text = ""
+	label.show()
 	var tween = create_tween()
-	await tween.tween_property(label, "visible", true, 1).finished
+	await tween.tween_property(label,"text", "I can't look at it no more...", 3).finished
+	await get_tree().create_timer(3).timeout
 	tween = create_tween()
-	tween.tween_property(label, "visible", false, 0.5)
+	await tween.tween_property(label, "modulate", Color.TRANSPARENT, 2).finished
+	label.hide()
+	label.modulate = Color.WHITE

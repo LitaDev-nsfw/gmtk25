@@ -11,6 +11,7 @@ font_size = 40
 
 [node name="Level2" type="Node2D"]
 modulate = Color(0.34902, 1, 1, 1)
+position = Vector2(2, 10)
 script = ExtResource("1_pbc48")
 level_music_layer_1 = ExtResource("2_b4j7a")
 level_music_layer_2 = null

@@ -1,7 +1,5 @@
 extends Node2D
 
-signal puzzle_solved
-signal loop_level
 @onready var first_sprite: Sprite2D = $FirstSprite
 @onready var second_sprite: Sprite2D = $SecondSprite
 @onready var dialog_box: Sprite2D = $DialogBox
