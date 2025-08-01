@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b461f71pl810y"
+path="res://.godot/imported/musica de corno 2.0 tesa.mp3-01a568cf5047c4aecc92a513151e4720.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/musica de corno 2.0 tesa.mp3"
+dest_files=["res://.godot/imported/musica de corno 2.0 tesa.mp3-01a568cf5047c4aecc92a513151e4720.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

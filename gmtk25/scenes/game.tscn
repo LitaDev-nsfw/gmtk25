@@ -69,4 +69,23 @@ bus = &"Music"
 [node name="LoopSound" type="AudioStreamPlayer" parent="Audio"]
 bus = &"SFX"
 
+[node name="WrongLevel" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
+
+[node name="CorrectLevel" type="AudioStreamPlayer" parent="Audio"]
+bus = &"SFX"
+
+[node name="Transition" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0, 0, 0, 1)
+
 [connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]

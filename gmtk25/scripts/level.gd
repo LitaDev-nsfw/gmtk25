@@ -2,6 +2,7 @@ extends Node2D
 class_name Level
 
 signal change_level
+signal repeat_level
 signal add_time_to_loop
 @onready var label : Label = $Label
 
@@ -17,3 +18,7 @@ func add_time(added_time : int) -> void:
 # called by each levels puzzle
 func _change_level() -> void:
 	change_level.emit() # will be recieved by game.gd
+
+# called by each levels puzzle
+func _repeat_level() -> void:
+	repeat_level.emit() # will be recieved by game.gd

@@ -33,3 +33,4 @@ label_settings = SubResource("LabelSettings_rus8k")
 position = Vector2(1744, 947)
 
 [connection signal="change_level" from="Puzzle" to="." method="_change_level"]
+[connection signal="repeat_level" from="Puzzle" to="." method="_repeat_level"]
