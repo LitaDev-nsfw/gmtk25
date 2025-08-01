@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://iyjbjehrlpil"]
+[gd_scene load_steps=6 format=3 uid="uid://iyjbjehrlpil"]
 
 [ext_resource type="Script" uid="uid://ef51hj0i1ffm" path="res://scripts/paiting.gd" id="1_4do24"]
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_7xrk7"]
 [ext_resource type="Texture2D" uid="uid://cwsajgkrdv3im" path="res://assets/visuals/square.png" id="3_u0dnc"]
+[ext_resource type="PackedScene" uid="uid://0dmhanq1k8k4" path="res://scenes/dialog_box.tscn" id="4_r4x21"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0dnc"]
-size = Vector2(5.07279, 26.6428)
+size = Vector2(5.07279, 37.9763)
 
 [node name="Paiting" type="Node2D"]
 scale = Vector2(5.27103, 3.81552)
@@ -26,10 +27,13 @@ collision_layer = 2147483648
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1.20477, -49.9377)
-rotation = -3.14159
-scale = Vector2(41.2642, -28.416)
+position = Vector2(4.241, 50.0091)
+scale = Vector2(51.356, 15.686)
 shape = SubResource("RectangleShape2D_u0dnc")
+
+[node name="DialogBox" parent="." instance=ExtResource("4_r4x21")]
+position = Vector2(-6.26063, 103.525)
+scale = Vector2(0.0968747, 0.0318612)
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

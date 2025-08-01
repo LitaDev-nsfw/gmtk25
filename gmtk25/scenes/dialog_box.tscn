@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://0dmhanq1k8k4"]
+
+[ext_resource type="Texture2D" uid="uid://cwsajgkrdv3im" path="res://assets/visuals/square.png" id="1_tihiy"]
+[ext_resource type="Script" uid="uid://gf0pttrufnwg" path="res://scripts/dialog_box.gd" id="2_df88m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u0dnc"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4x21"]
+
+[node name="DialogBox" type="Sprite2D"]
+scale = Vector2(0.0968747, 0.0318612)
+texture = ExtResource("1_tihiy")
+script = ExtResource("2_df88m")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -395.59
+offset_top = -238.552
+offset_right = -219.59
+offset_bottom = -215.552
+scale = Vector2(4.6693, 18.56)
+text = "THIS IS A DESCRIPTION"
+label_settings = SubResource("LabelSettings_u0dnc")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 1073741824
+collision_mask = 1073741824
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(54.7565, 50.2122)
+shape = SubResource("RectangleShape2D_r4x21")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
