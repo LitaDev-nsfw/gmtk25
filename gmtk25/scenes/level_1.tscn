@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_bswci"]
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_rus8k"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_rus8k"]
+[ext_resource type="PackedScene" path="res://scenes/Dial_Phone.tscn" id="4_5xbjy"]
+[ext_resource type="PackedScene" path="res://scenes/Toy_Blocks.tscn" id="5_4nkto"]
+[ext_resource type="PackedScene" path="res://scenes/Mirror.tscn" id="6_fcfvj"]
+[ext_resource type="PackedScene" uid="uid://djdf11yg2sdxx" path="res://scenes/paiting.tscn" id="7_pa8r4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rus8k"]
 font_size = 40
@@ -17,8 +21,24 @@ scale = Vector2(15.3622, 8.93256)
 texture = ExtResource("1_bswci")
 
 [node name="Interactable" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(876, 379)
+position = Vector2(1751, 737)
 is_puzzle = true
+
+[node name="Interactable2" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(1470, 341)
+scene_to_load = ExtResource("4_5xbjy")
+
+[node name="Interactable3" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(421, 509)
+scene_to_load = ExtResource("5_4nkto")
+
+[node name="Interactable4" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(449, 700)
+scene_to_load = ExtResource("6_fcfvj")
+
+[node name="Interactable5" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(1336, 841)
+scene_to_load = ExtResource("7_pa8r4")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 920.0
@@ -35,3 +55,11 @@ position = Vector2(1744, 947)
 
 [connection signal="change_level" from="Interactable" to="." method="_change_level"]
 [connection signal="repeat_level" from="Interactable" to="." method="_repeat_level"]
+[connection signal="change_level" from="Interactable2" to="." method="_change_level"]
+[connection signal="repeat_level" from="Interactable2" to="." method="_repeat_level"]
+[connection signal="change_level" from="Interactable3" to="." method="_change_level"]
+[connection signal="repeat_level" from="Interactable3" to="." method="_repeat_level"]
+[connection signal="change_level" from="Interactable4" to="." method="_change_level"]
+[connection signal="repeat_level" from="Interactable4" to="." method="_repeat_level"]
+[connection signal="change_level" from="Interactable5" to="." method="_change_level"]
+[connection signal="repeat_level" from="Interactable5" to="." method="_repeat_level"]

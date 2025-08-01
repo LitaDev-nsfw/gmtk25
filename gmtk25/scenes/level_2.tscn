@@ -1,55 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtnnhjmopedsx"]
+[gd_scene load_steps=7 format=3 uid="uid://dtnnhjmopedsx"]
 
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_jm1iu"]
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_pbc48"]
 [ext_resource type="AudioStream" uid="uid://43l4s4rrrdsk" path="res://assets/audio/music/GMTK Spooks.wav" id="2_b4j7a"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_pbc48"]
-[ext_resource type="Texture2D" uid="uid://cwsajgkrdv3im" path="res://assets/visuals/square.png" id="5_wo48x"]
-[ext_resource type="PackedScene" uid="uid://0dmhanq1k8k4" path="res://scenes/dialog_box.tscn" id="6_y0kc7"]
-
-[sub_resource type="GDScript" id="GDScript_ne2mo"]
-script/source = "extends Node2D
-
-signal puzzle_solved
-signal loop_level
-@onready var first_sprite: Sprite2D = $FirstSprite
-@onready var second_sprite: Sprite2D = $SecondSprite
-@onready var dialog_box: Sprite2D = $DialogBox
-
-func _ready() -> void:
-	first_sprite.show()
-	second_sprite.hide()
-	dialog_box.hide()
-	
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed: 
-		modulate = Color.WHITE
-		first_sprite.hide()
-		second_sprite.show()
-		dialog_box.show()
-
-func _on_area_2d_mouse_exited() -> void:
-	modulate = Color.WHITE
-
-func _on_area_2d_mouse_entered() -> void:
-	modulate = Color.YELLOW
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0dnc"]
-size = Vector2(5.07279, 37.9763)
-
-[sub_resource type="PackedScene" id="PackedScene_6cvei"]
-_bundled = {
-"conn_count": 3,
-"conns": PackedInt32Array(3, 0, 18, 17, 2, 0, 0, 3, 0, 20, 19, 2, 0, 0, 3, 0, 22, 21, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("Quadro_Demo", "scale", "script", "Node2D", "FirstSprite", "position", "texture", "Sprite2D", "SecondSprite", "visible", "Area2D", "collision_layer", "collision_mask", "CollisionShape2D", "shape", "DialogBox", "dialog", "_on_area_2d_input_event", "input_event", "_on_area_2d_mouse_entered", "mouse_entered", "_on_area_2d_mouse_exited", "mouse_exited"),
-"node_count": 6,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 3, 0, -1, 2, 1, 0, 2, 1, 0, 0, 0, 7, 4, -1, 3, 5, 2, 1, 3, 6, 4, 0, 0, 0, 7, 8, -1, 3, 9, 5, 1, 6, 6, 4, 0, 0, 0, 10, 10, -1, 3, 1, 7, 11, 8, 12, 9, 0, 3, 0, 13, 13, -1, 3, 5, 10, 1, 11, 14, 12, 0, 0, 0, 2147483647, 15, 13, 2, 5, 14, 16, 15, 0),
-"variants": [Vector2(5.27103, 3.81552), SubResource("GDScript_ne2mo"), Vector2(-2.08688, -17.0357), Vector2(0.0999912, 0.236443), ExtResource("5_wo48x"), false, Vector2(0.0696594, 0.300807), Vector2(-0.402605, -0.314448), 2147483648, 0, Vector2(4.241, 50.0091), Vector2(51.356, 15.686), SubResource("RectangleShape2D_u0dnc"), ExtResource("6_y0kc7"), Vector2(-1.1383, 103), Array[String](["guito", "nuno", "freitas", "teixa"])],
-"version": 3
-}
+[ext_resource type="PackedScene" uid="uid://djdf11yg2sdxx" path="res://scenes/paiting.tscn" id="4_eqxsl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbc48"]
 font_size = 40
@@ -67,7 +22,7 @@ texture = ExtResource("1_jm1iu")
 
 [node name="Interactable" parent="." instance=ExtResource("3_pbc48")]
 position = Vector2(1452, 902)
-scene_to_load = SubResource("PackedScene_6cvei")
+scene_to_load = ExtResource("4_eqxsl")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 920.0
