@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxm1ciglp7qh0"]
+[gd_scene load_steps=9 format=3 uid="uid://cxm1ciglp7qh0"]
 
 [ext_resource type="Script" uid="uid://2brnat7foo8u" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://do7a5j4m5dryv" path="res://scenes/level_1.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://hbhc16eqvpv2" path="res://scenes/player.tscn" id="3_p57ef"]
 [ext_resource type="Script" uid="uid://diekl7drknjbv" path="res://scripts/loop_timer_label.gd" id="4_lbhrr"]
+[ext_resource type="AudioStream" uid="uid://b461f71pl810y" path="res://assets/audio/music/musica de corno 2.0 tesa.mp3" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://cva7pd2adqmyw" path="res://assets/audio/sfx/loop end idea.wav" id="6_p57ef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
 size = Vector2(82.9847, 20)
@@ -64,9 +66,11 @@ script = ExtResource("4_lbhrr")
 [node name="Audio" type="Node" parent="."]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_iywne")
 bus = &"Music"
 
 [node name="LoopSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("6_p57ef")
 bus = &"SFX"
 
 [node name="WrongLevel" type="AudioStreamPlayer" parent="Audio"]

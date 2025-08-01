@@ -18,6 +18,7 @@ func _ready() -> void:
 	level_1.connect("change_level", _on_player_change_level)
 	level_1.connect("repeat_level", _repeat_level)
 	level_1.connect("add_time_to_loop", update_loop_time)
+	background_music.play()
 	
 func _on_player_change_level() -> void:
 	var current_level = find_level()
@@ -65,7 +66,6 @@ func _on_timer_timeout() -> void:
 	var next_level = level1.instantiate()
 	next_level.name = "Level1"
 	transition(next_level, current_level)
-	loop_sound.play()
 
 func update_loop_time(added_time : int) -> void:
 	timer.wait_time += added_time # TODO, this will only add time to the total timer, the current loop wont be affected
@@ -88,9 +88,10 @@ func _repeat_level() -> void:
 		
 		if next_level != null:
 			transition(next_level, current_level)
-			wrong_level.play()
+			
 
 func transition(next_level : Node, current_level : Node): 
+	loop_sound.play()
 	var tween = create_tween().set_parallel()
 	tween.tween_property(color_rect, "modulate", Color.BLACK, 2)
 	tween.tween_property(color_rect, "scale", Vector2(5,5), 2)
