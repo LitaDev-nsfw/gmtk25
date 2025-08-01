@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://do7a5j4m5dryv" path="res://scenes/level_1.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://hbhc16eqvpv2" path="res://scenes/player.tscn" id="3_p57ef"]
 [ext_resource type="Script" uid="uid://diekl7drknjbv" path="res://scripts/loop_timer_label.gd" id="4_lbhrr"]
-[ext_resource type="AudioStream" uid="uid://b461f71pl810y" path="res://assets/audio/music/musica de corno 2.0 tesa.mp3" id="5_iywne"]
+[ext_resource type="Script" uid="uid://crn8mk5tqb015" path="res://scripts/audio_manager.gd" id="5_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://cva7pd2adqmyw" path="res://assets/audio/sfx/loop end idea.wav" id="6_p57ef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
@@ -64,13 +64,20 @@ label_settings = SubResource("LabelSettings_lnu2h")
 script = ExtResource("4_lbhrr")
 
 [node name="Audio" type="Node" parent="."]
+script = ExtResource("5_u5sy4")
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("5_iywne")
+[node name="Stream1" type="AudioStreamPlayer" parent="Audio"]
+bus = &"Music"
+
+[node name="Stream2" type="AudioStreamPlayer" parent="Audio"]
+bus = &"Music"
+
+[node name="Layer2" type="AudioStreamPlayer" parent="Audio"]
 bus = &"Music"
 
 [node name="LoopSound" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("6_p57ef")
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="WrongLevel" type="AudioStreamPlayer" parent="Audio"]

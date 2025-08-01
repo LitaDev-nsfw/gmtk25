@@ -5,6 +5,8 @@ signal change_level
 signal repeat_level
 signal add_time_to_loop
 @onready var label : Label = $Label
+@export var level_music_layer_1 : AudioStream = preload("res://assets/audio/music/Loop 1.wav")
+@export var level_music_layer_2 : AudioStream = preload("res://assets/audio/music/Loop 2.wav")
 
 func _ready() -> void:
 	if label: # set the level name for debugging
