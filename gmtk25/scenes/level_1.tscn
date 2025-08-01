@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_bswci"]
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_rus8k"]
-[ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/puzzle.tscn" id="3_rus8k"]
+[ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_rus8k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rus8k"]
 font_size = 40
@@ -16,8 +16,9 @@ position = Vector2(961, 544)
 scale = Vector2(15.263, 8.93256)
 texture = ExtResource("1_bswci")
 
-[node name="Puzzle" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(878, 390)
+[node name="Interactable" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(876, 379)
+is_puzzle = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = 920.0
@@ -32,5 +33,5 @@ label_settings = SubResource("LabelSettings_rus8k")
 [node name="Voices" type="AudioStreamPlayer2D" parent="Audio"]
 position = Vector2(1744, 947)
 
-[connection signal="change_level" from="Puzzle" to="." method="_change_level"]
-[connection signal="repeat_level" from="Puzzle" to="." method="_repeat_level"]
+[connection signal="change_level" from="Interactable" to="." method="_change_level"]
+[connection signal="repeat_level" from="Interactable" to="." method="_repeat_level"]

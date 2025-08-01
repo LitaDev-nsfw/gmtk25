@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_6j14n"]
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_6malg"]
-[ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/puzzle.tscn" id="3_6j14n"]
+[ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_6j14n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6j14n"]
 font_size = 40
