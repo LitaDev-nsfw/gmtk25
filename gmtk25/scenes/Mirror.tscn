@@ -1,25 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://iyjbjehrlpil"]
+[gd_scene load_steps=6 format=3 uid="uid://c6u01kfdr8pim"]
 
-[ext_resource type="Script" uid="uid://ef51hj0i1ffm" path="res://scripts/paiting.gd" id="1_4do24"]
-[ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_7xrk7"]
-[ext_resource type="Texture2D" uid="uid://cwsajgkrdv3im" path="res://assets/visuals/square.png" id="3_u0dnc"]
-[ext_resource type="PackedScene" uid="uid://lfwj3udiip6s" path="res://scenes/dialog_box.tscn" id="4_r4x21"]
+[ext_resource type="Script" uid="uid://ef51hj0i1ffm" path="res://scripts/paiting.gd" id="1_7i16h"]
+[ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="2_thsvi"]
+[ext_resource type="Texture2D" uid="uid://cwsajgkrdv3im" path="res://assets/visuals/square.png" id="3_hjioc"]
+[ext_resource type="PackedScene" uid="uid://lfwj3udiip6s" path="res://scenes/dialog_box.tscn" id="4_fy50y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0dnc"]
 size = Vector2(5.07279, 37.9763)
 
 [node name="Paiting" type="Node2D"]
 scale = Vector2(5.27103, 3.81552)
-script = ExtResource("1_4do24")
+script = ExtResource("1_7i16h")
 
 [node name="FirstSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.74, 1.90265)
-texture = ExtResource("1_7xrk7")
+texture = ExtResource("2_thsvi")
 
 [node name="SecondSprite" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.0696594, 0.300807)
-texture = ExtResource("3_u0dnc")
+texture = ExtResource("3_hjioc")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(-0.402605, -0.314448)
@@ -31,10 +31,10 @@ position = Vector2(4.241, 50.0091)
 scale = Vector2(51.356, 15.686)
 shape = SubResource("RectangleShape2D_u0dnc")
 
-[node name="DialogBox" parent="." instance=ExtResource("4_r4x21")]
+[node name="DialogBox" parent="." instance=ExtResource("4_fy50y")]
 position = Vector2(-6.26063, 103.525)
 rotation = -0.000650526
-dialog = Array[String](["This paiting was made by an unknown artist ", "it depicts (something)"])
+dialog = Array[String](["- I can´t even recognize myself anymore"])
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
