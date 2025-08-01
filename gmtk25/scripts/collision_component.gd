@@ -11,6 +11,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if get_overlapping_areas().size() > 0 and event.is_action_pressed("interact"):
 		open_puzzle.emit()
+	if get_overlapping_areas().size() > 0 and event.is_action_pressed("escape"):
+		close_puzzle.emit()
 
 func _on_area_entered(area: Area2D) -> void:
 	label.visible = true

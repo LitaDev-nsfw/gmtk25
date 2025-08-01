@@ -11,6 +11,7 @@ func _ready() -> void:
 
 	label.hide()
 	plank.hide()
+	plank_label.hide()
 	
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -30,7 +31,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	
-	move_and_slide()
+	if Globals.player_can_move:
+		move_and_slide()
 
 # do some animation?
 func _on_area_2d_area_entered(area: Area2D) -> void:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://vvtc36xkb560"]
+[gd_scene load_steps=6 format=3 uid="uid://vvtc36xkb560"]
 
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_6j14n"]
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_6malg"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_6j14n"]
+[ext_resource type="PackedScene" uid="uid://csc3plow6hraf" path="res://scenes/void.tscn" id="4_rbbjd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6j14n"]
 font_size = 40
@@ -26,5 +27,9 @@ label_settings = SubResource("LabelSettings_6j14n")
 
 [node name="Puzzle" parent="." instance=ExtResource("3_6j14n")]
 position = Vector2(273, 635)
+
+[node name="Void" parent="." instance=ExtResource("4_rbbjd")]
+position = Vector2(470, 260)
+scale = Vector2(17.8041, 9.42954)
 
 [connection signal="change_level" from="Puzzle" to="." method="_change_level"]

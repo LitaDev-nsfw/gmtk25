@@ -15,12 +15,12 @@ texture = ExtResource("1_1u5is")
 script = ExtResource("2_ctckn")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -339.216
-offset_top = -292.86
-offset_right = -299.216
-offset_bottom = -269.86
+offset_left = -143.0
+offset_top = -305.0
+offset_right = -79.0
+offset_bottom = -32.0
 scale = Vector2(4.67677, 1.91762)
-text = "1"
+text = "-"
 label_settings = SubResource("LabelSettings_1u5is")
 
 [node name="Area2D" type="Area2D" parent="."]

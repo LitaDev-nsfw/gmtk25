@@ -18,6 +18,8 @@ var delta_sum : float = 0
 
 func _ready() -> void:
 	EventSystem.connect("play_mirror_line", show_player_label)
+	EventSystem.connect("player_fell", _repeat_level)
+	
 	level_1.connect("change_level", _on_player_change_level)
 	level_1.connect("repeat_level", _repeat_level)
 	level_1.connect("add_time_to_loop", update_loop_time)

@@ -21,16 +21,20 @@ func _ready() -> void:
 		child_scene.hide()
 
 func _on_collision_component_open_puzzle() -> void:
-	child_scene._ready()
-	child_scene.show()
-	
-	if child_scene.name == "Mirror":
-		await get_tree().create_timer(5).timeout
-		if child_scene.visible:
-			hide_mirror()
+	if child_scene.visible == true: # toggle
+		_on_collision_component_close_puzzle()
+	else:
+		child_scene._ready()
+		child_scene.show()
+		Globals.player_can_move = false
+		if child_scene.name == "Mirror":
+			await get_tree().create_timer(5).timeout
+			if child_scene.visible:
+				hide_mirror()
 
 func _on_collision_component_close_puzzle() -> void:
 	child_scene.hide()
+	Globals.player_can_move = true
 
 func _change_level():
 	change_level.emit()

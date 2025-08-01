@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtnnhjmopedsx"]
+[gd_scene load_steps=9 format=3 uid="uid://dtnnhjmopedsx"]
 
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_jm1iu"]
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_pbc48"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_pbc48"]
 [ext_resource type="PackedScene" uid="uid://djdf11yg2sdxx" path="res://scenes/paiting.tscn" id="4_eqxsl"]
 [ext_resource type="PackedScene" uid="uid://cgmlaxh2mxy62" path="res://scenes/plank.tscn" id="6_wo48x"]
+[ext_resource type="PackedScene" uid="uid://csc3plow6hraf" path="res://scenes/void.tscn" id="7_y0kc7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbc48"]
 font_size = 40
@@ -45,5 +46,9 @@ position = Vector2(854, 353)
 
 [node name="Plank4" parent="." instance=ExtResource("6_wo48x")]
 position = Vector2(1223, 741)
+
+[node name="Void" parent="." instance=ExtResource("7_y0kc7")]
+position = Vector2(1303, 102)
+scale = Vector2(10.7891, 7.19)
 
 [connection signal="change_level" from="Interactable" to="." method="_change_level"]
