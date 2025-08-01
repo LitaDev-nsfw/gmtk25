@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://djdf11yg2sdxx"]
 
-[ext_resource type="Script" path="res://scripts/paiting.gd" id="1_4do24"]
+[ext_resource type="Script" uid="uid://ef51hj0i1ffm" path="res://scripts/paiting.gd" id="1_4do24"]
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_7xrk7"]
 [ext_resource type="Texture2D" uid="uid://cwsajgkrdv3im" path="res://assets/visuals/square.png" id="3_u0dnc"]
 [ext_resource type="PackedScene" uid="uid://lfwj3udiip6s" path="res://scenes/dialog_box.tscn" id="4_r4x21"]

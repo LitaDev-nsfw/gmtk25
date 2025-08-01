@@ -29,3 +29,7 @@ func _change_level():
 
 func _repeat_level():
 	repeat_level.emit()
+
+func hide_mirror():
+	canvas_layer.get_child(0).hide()
+	

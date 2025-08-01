@@ -128,3 +128,6 @@ func transition_songs(next_level : Node, current_level : Node) -> void:
 		audio_manager.crossfade_music_to(current_level.level_music_layer_1)
 		audio_manager.fade_layer_in(current_level.level_music_layer_2)
 		
+func show_player_label():
+	player.show_label()
+		

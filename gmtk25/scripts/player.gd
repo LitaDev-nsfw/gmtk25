@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Player
 const SPEED = 400.0
+@onready var label: Label = $Label
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -29,3 +30,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func reset_pos() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "position", Vector2(150, 150), 0.5)
+	
+func show_label() -> void:
+	var tween = create_tween()
+	await tween.tween_property(label, "visible", true, 1).finished
+	tween = create_tween()
+	tween.tween_property(label, "visible", false, 0.5)
