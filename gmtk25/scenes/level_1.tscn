@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://do7a5j4m5dryv"]
+[gd_scene load_steps=9 format=3 uid="uid://do7a5j4m5dryv"]
 
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_bswci"]
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_rus8k"]
@@ -13,7 +13,7 @@ script = ExtResource("1_rus8k")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.239216, 1, 1)
 position = Vector2(961, 544)
-scale = Vector2(15.263, 8.93256)
+scale = Vector2(15.3622, 8.93256)
 texture = ExtResource("1_bswci")
 
 [node name="Interactable" parent="." instance=ExtResource("3_rus8k")]
