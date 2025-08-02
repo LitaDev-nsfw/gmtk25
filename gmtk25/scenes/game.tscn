@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://diekl7drknjbv" path="res://scripts/loop_timer_label.gd" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cpkl63h57h36m" path="res://Pause_Menu/pause_menu.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://cu1r7v8hgwr0x" path="res://Pause_Menu/settings.tscn" id="5_gee14"]
-[ext_resource type="Script" uid="uid://crn8mk5tqb015" path="res://scripts/audio_manager.gd" id="5_u5sy4"]
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="5_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://cva7pd2adqmyw" path="res://assets/audio/sfx/loop end idea.wav" id="6_p57ef"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lnu2h"]

@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_pbc48"]
 [ext_resource type="AudioStream" uid="uid://43l4s4rrrdsk" path="res://assets/audio/music/GMTK Spooks.wav" id="2_b4j7a"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_pbc48"]
-[ext_resource type="Texture2D" uid="uid://dxvp1eu57juil" path="res://assets/visuals/lvl_2.png" id="3_y0kc7"]
-[ext_resource type="PackedScene" uid="uid://djdf11yg2sdxx" path="res://scenes/paiting.tscn" id="4_eqxsl"]
+[ext_resource type="Texture2D" uid="uid://dec0wgn03woj6" path="res://assets/visuals/Level2.png" id="3_y0kc7"]
+[ext_resource type="PackedScene" uid="uid://djdf11yg2sdxx" path="res://scenes/Atropos.tscn" id="4_eqxsl"]
 [ext_resource type="PackedScene" uid="uid://cgmlaxh2mxy62" path="res://scenes/plank.tscn" id="6_wo48x"]
 [ext_resource type="PackedScene" uid="uid://csc3plow6hraf" path="res://scenes/void.tscn" id="7_y0kc7"]
 
@@ -29,12 +29,12 @@ script = ExtResource("1_pbc48")
 level_music_layer_1 = ExtResource("2_b4j7a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(961, 544)
-scale = Vector2(5.32202, 3.52373)
+position = Vector2(961, 531.5)
+scale = Vector2(11.0751, 6.34706)
 texture = ExtResource("3_y0kc7")
 
 [node name="Interactable" parent="." instance=ExtResource("3_pbc48")]
-position = Vector2(1452, 902)
+position = Vector2(941, 245)
 scene_to_load = ExtResource("4_eqxsl")
 
 [node name="Label" type="Label" parent="."]

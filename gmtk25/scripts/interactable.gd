@@ -41,8 +41,12 @@ func _on_collision_component_close_puzzle() -> void:
 		dialog_box.reset_box()
 		
 	child_scene.hide()
+	var dialog_box = child_scene.find_child("DialogBox")
+	if dialog_box != null:
+		dialog_box.reset_box()
 	background.hide()
 	Globals.player_can_move = true
+	
 
 func _change_level():
 	change_level.emit()

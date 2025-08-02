@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://do7a5j4m5dryv"]
+[gd_scene load_steps=9 format=3 uid="uid://do7a5j4m5dryv"]
 
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_rus8k"]
-[ext_resource type="Texture2D" uid="uid://d2a010jeu3xc3" path="res://assets/visuals/lvl_1.png" id="2_pa8r4"]
+[ext_resource type="Texture2D" uid="uid://c7nj1bw6rwafu" path="res://assets/visuals/Level1.png" id="2_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_rus8k"]
-[ext_resource type="PackedScene" uid="uid://dn74762yi4qyt" path="res://scenes/Dial_Phone.tscn" id="4_5xbjy"]
-[ext_resource type="PackedScene" uid="uid://dnp1dotwmus35" path="res://scenes/Toy_Blocks.tscn" id="5_4nkto"]
-[ext_resource type="PackedScene" uid="uid://c6u01kfdr8pim" path="res://scenes/Mirror.tscn" id="6_fcfvj"]
-[ext_resource type="PackedScene" uid="uid://djdf11yg2sdxx" path="res://scenes/paiting.tscn" id="7_pa8r4"]
+[ext_resource type="PackedScene" uid="uid://cuwihsmxsnv6x" path="res://scenes/ClockPainting.tscn" id="4_fcfvj"]
+[ext_resource type="PackedScene" uid="uid://doohuqmr2ujx5" path="res://scenes/Saturn.tscn" id="6_pa8r4"]
+[ext_resource type="PackedScene" uid="uid://djdf11yg2sdxx" path="res://scenes/Atropos.tscn" id="7_pa8r4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rus8k"]
 font_size = 40
@@ -19,28 +18,28 @@ position = Vector2(7, -2)
 script = ExtResource("1_rus8k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(961, 544)
-scale = Vector2(5.01164, 3.10574)
-texture = ExtResource("2_pa8r4")
+position = Vector2(954, 543)
+scale = Vector2(11.1279, 6.42857)
+texture = ExtResource("2_5xbjy")
 
 [node name="Interactable" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(1751, 737)
+position = Vector2(940, 265)
 is_puzzle = true
 
-[node name="Dial_Phone" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(1470, 341)
-scene_to_load = ExtResource("4_5xbjy")
+[node name="ClockPainting" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(1743, 343)
+scene_to_load = ExtResource("4_fcfvj")
 
-[node name="Toy_Blocks" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(421, 509)
-scene_to_load = ExtResource("5_4nkto")
+[node name="AtroposPainting" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(1466, 691)
+scene_to_load = ExtResource("7_pa8r4")
 
-[node name="Mirror" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(449, 700)
-scene_to_load = ExtResource("6_fcfvj")
+[node name="SaturnPainting" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(272, 378)
+scene_to_load = ExtResource("6_pa8r4")
 
-[node name="Painting" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(1336, 841)
+[node name="Rug" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(724, 612)
 scene_to_load = ExtResource("7_pa8r4")
 
 [node name="Label" type="Label" parent="."]
@@ -82,11 +81,11 @@ shape = SubResource("RectangleShape2D_pa8r4")
 
 [connection signal="change_level" from="Interactable" to="." method="_change_level"]
 [connection signal="repeat_level" from="Interactable" to="." method="_repeat_level"]
-[connection signal="change_level" from="Dial_Phone" to="." method="_change_level"]
-[connection signal="repeat_level" from="Dial_Phone" to="." method="_repeat_level"]
-[connection signal="change_level" from="Toy_Blocks" to="." method="_change_level"]
-[connection signal="repeat_level" from="Toy_Blocks" to="." method="_repeat_level"]
-[connection signal="change_level" from="Mirror" to="." method="_change_level"]
-[connection signal="repeat_level" from="Mirror" to="." method="_repeat_level"]
-[connection signal="change_level" from="Painting" to="." method="_change_level"]
-[connection signal="repeat_level" from="Painting" to="." method="_repeat_level"]
+[connection signal="change_level" from="ClockPainting" to="." method="_change_level"]
+[connection signal="repeat_level" from="ClockPainting" to="." method="_repeat_level"]
+[connection signal="change_level" from="AtroposPainting" to="." method="_change_level"]
+[connection signal="repeat_level" from="AtroposPainting" to="." method="_repeat_level"]
+[connection signal="change_level" from="SaturnPainting" to="." method="_change_level"]
+[connection signal="repeat_level" from="SaturnPainting" to="." method="_repeat_level"]
+[connection signal="change_level" from="Rug" to="." method="_change_level"]
+[connection signal="repeat_level" from="Rug" to="." method="_repeat_level"]
