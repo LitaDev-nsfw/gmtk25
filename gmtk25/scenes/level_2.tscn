@@ -34,7 +34,7 @@ scale = Vector2(11.0751, 6.34706)
 texture = ExtResource("3_y0kc7")
 
 [node name="Interactable" parent="." instance=ExtResource("3_pbc48")]
-position = Vector2(941, 245)
+position = Vector2(943, 245)
 scene_to_load = ExtResource("4_eqxsl")
 
 [node name="Label" type="Label" parent="."]

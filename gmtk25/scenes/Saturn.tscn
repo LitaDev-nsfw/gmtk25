@@ -17,8 +17,8 @@ scale = Vector2(0.74, 1.90265)
 texture = ExtResource("2_y08o3")
 
 [node name="SecondSprite" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.0696594, 0.300807)
+position = Vector2(0, -23.3258)
+scale = Vector2(0.141251, 0.211114)
 texture = ExtResource("3_o6fhm")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -32,7 +32,7 @@ scale = Vector2(51.356, 15.686)
 shape = SubResource("RectangleShape2D_u0dnc")
 
 [node name="DialogBox" parent="." instance=ExtResource("4_x3d4n")]
-position = Vector2(-6.26063, 103.525)
+position = Vector2(-4.24276e-09, 96.1861)
 rotation = -0.000650526
 dialog = Array[String](["\"Saturn Devouring His Son\"", "Painted by Francisco Goya", "Various interpretations of the meaning of the picture have been offered:", "The conflict between youth and old age ", "Time as the devourer of all things..."])
 
