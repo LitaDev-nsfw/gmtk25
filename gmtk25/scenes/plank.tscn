@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgmlaxh2mxy62"]
 
-[ext_resource type="Script" uid="uid://cspdeocc1r013" path="res://scripts/plank.gd" id="1_jmhrc"]
+[ext_resource type="Script" path="res://scripts/plank.gd" id="1_jmhrc"]
 [ext_resource type="PackedScene" uid="uid://d3apiw34m0up3" path="res://scenes/collision_component.tscn" id="2_0arx4"]
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="2_opdqs"]
 

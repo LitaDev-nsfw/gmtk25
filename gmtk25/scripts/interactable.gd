@@ -7,6 +7,7 @@ extends Node2D
 signal change_level
 signal repeat_level
 var child_scene : Node
+@onready var background: Sprite2D = $Background
 
 func _ready() -> void:
 	if scene_to_load != null:
@@ -19,6 +20,7 @@ func _ready() -> void:
 		canvas_layer.add_child(scene)
 		child_scene = canvas_layer.get_child(0)
 		child_scene.hide()
+		background.hide()
 
 func _on_collision_component_open_puzzle() -> void:
 	if child_scene.visible == true: # toggle
@@ -26,6 +28,7 @@ func _on_collision_component_open_puzzle() -> void:
 	else:
 		child_scene._ready()
 		child_scene.show()
+		background.show()
 		Globals.player_can_move = false
 		if child_scene.name == "Mirror":
 			await get_tree().create_timer(5).timeout
@@ -34,6 +37,7 @@ func _on_collision_component_open_puzzle() -> void:
 
 func _on_collision_component_close_puzzle() -> void:
 	child_scene.hide()
+	background.hide()
 	Globals.player_can_move = true
 
 func _change_level():
@@ -44,4 +48,5 @@ func _repeat_level():
 
 func hide_mirror():
 	child_scene.hide()
+	background.hide()
 	EventSystem.play_mirror_line.emit()
