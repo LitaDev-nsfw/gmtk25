@@ -37,6 +37,10 @@ movie_writer/mjpeg_quality=0.4
 movie_writer/movie_file="C:/workspace/gmtk25/gmtk25/gmtk25/output.avi"
 movie_writer/fps=20
 
+[gui]
+
+theme/custom_font="uid://dp7q62triyovb"
+
 [input]
 
 ui_left={

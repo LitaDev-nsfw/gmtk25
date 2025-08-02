@@ -147,10 +147,4 @@ scale = Vector2(3.87321, 1.71944)
 position = Vector2(1697, -363)
 scale = Vector2(3.87321, 1.71944)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(1000, 2185)
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1002, 2348)
-
 [connection signal="change_level" from="Puzzle" to="." method="_change_level"]

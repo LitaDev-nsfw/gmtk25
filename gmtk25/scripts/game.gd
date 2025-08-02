@@ -47,7 +47,7 @@ func _on_player_change_level() -> void:
 		# there will be special logic in some cases, ie, go from lvl2 to lvl2 again.
 		match (current_level_name):
 			"Level1":
-				next_level = create_next_level(level2)
+				next_level = create_next_level(level4)
 			"Level2":
 				next_level = create_next_level(level3)
 			"Level3":

@@ -8,6 +8,8 @@ signal add_time_to_loop
 @export var level_music_layer_1 : AudioStream = preload("res://assets/audio/music/Loop 1.wav")
 @export var level_music_layer_2 : AudioStream = preload("res://assets/audio/music/Loop 2.wav")
 var plank_scene : PackedScene = preload("res://scenes/placed_plank.tscn")
+@onready var marker_2d: Marker2D = $Marker2D
+
 func _ready() -> void:
 	EventSystem.connect("place_plank", place_plank)
 	if label: # set the level name for debugging

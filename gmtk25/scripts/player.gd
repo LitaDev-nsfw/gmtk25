@@ -43,9 +43,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	pass
 
 func reset_pos() -> void:
-	var tween = create_tween()
-	tween.tween_property(self, "position", Vector2(150, 150), 0.5)
-	
+	#var tween = create_tween()
+	#tween.tween_property(self, "position", Vector2(1000.0, 2185.0), 0.5)
+	position = Vector2(1000.0, 2185.0)
 func show_label() -> void:
 	Globals.player_can_move = true
 	label.text = ""
@@ -81,5 +81,4 @@ func remove_planks():
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action("place") and event.is_pressed():
-		print("place")
 		place_plank()

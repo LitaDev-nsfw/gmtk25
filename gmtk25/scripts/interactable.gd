@@ -36,6 +36,10 @@ func _on_collision_component_open_puzzle() -> void:
 				hide_mirror()
 
 func _on_collision_component_close_puzzle() -> void:
+	var dialog_box = child_scene.find_child("DialogBox")
+	if dialog_box != null:
+		dialog_box.reset_box()
+		
 	child_scene.hide()
 	background.hide()
 	Globals.player_can_move = true

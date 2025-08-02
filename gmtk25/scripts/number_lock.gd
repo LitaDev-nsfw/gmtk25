@@ -1,7 +1,7 @@
 extends Node2D
 
-var combination = 3421
-var wrong_combination = 4444
+@export var combination = 3421
+@export var wrong_combination = 4444
 
 signal puzzle_solved
 signal loop_level

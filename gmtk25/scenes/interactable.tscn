@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://du6h2oyy5sg27"]
+[gd_scene load_steps=5 format=3 uid="uid://du6h2oyy5sg27"]
 
 [ext_resource type="Script" uid="uid://bmgn7b7h20hfs" path="res://scripts/interactable.gd" id="1_3asjn"]
 [ext_resource type="PackedScene" uid="uid://cpyce2i7r3wyc" path="res://scenes/number_lock.tscn" id="2_t8qc4"]
 [ext_resource type="Texture2D" uid="uid://cwsajgkrdv3im" path="res://assets/visuals/square.png" id="3_o0ci7"]
 [ext_resource type="PackedScene" uid="uid://d3apiw34m0up3" path="res://scenes/collision_component.tscn" id="3_wsi0i"]
-[ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="4_ibph6"]
 
 [node name="Interactable" type="Node2D"]
 script = ExtResource("1_3asjn")
@@ -18,11 +17,6 @@ scale = Vector2(4.64826, 2.74375)
 texture = ExtResource("3_o0ci7")
 
 [node name="CollisionComponent" parent="." instance=ExtResource("3_wsi0i")]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-5, 6)
-scale = Vector2(0.568306, 0.521752)
-texture = ExtResource("4_ibph6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
