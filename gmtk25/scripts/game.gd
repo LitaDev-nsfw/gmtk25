@@ -108,30 +108,33 @@ func _repeat_level() -> void:
 			transition(next_level, current_level)
 
 func transition(next_level : Node, current_level : Node) -> void: 
-	loop_sound.play()
-	transition_songs(next_level, current_level)
-	var tween = create_tween().set_parallel()
-	tween.tween_property(color_rect, "modulate", Color.BLACK, 2)
-	tween.tween_property(color_rect, "scale", Vector2(5,5), 2)
-	tween.tween_property(color_rect, "position", Vector2(-1000, -1000), 1.5)
-	await tween.finished
-	player.reset_pos()
-	remove_child(current_level)
-	current_level.queue_free()
-	call_deferred("add_child", next_level)
-	await get_tree().create_timer(0.5).timeout
-	color_rect.position = Vector2(0,0)
-	tween = create_tween().set_parallel()
-	tween.tween_property(color_rect, "modulate", Color.TRANSPARENT, 1.5)
-	tween.tween_property(color_rect, "scale", Vector2(1,1), 1.5)
+	if current_level != null and next_level != null:
+		loop_sound.play()
+		transition_songs(next_level, current_level)
+		var tween = create_tween().set_parallel()
+		tween.tween_property(color_rect, "modulate", Color.BLACK, 2)
+		tween.tween_property(color_rect, "scale", Vector2(5,5), 2)
+		tween.tween_property(color_rect, "position", Vector2(-1000, -1000), 1.5)
+		await tween.finished
+		player.reset_pos()
+		if current_level != null and next_level != null:
+			remove_child(current_level)
+			current_level.queue_free()
+			call_deferred("add_child", next_level)
+			await get_tree().create_timer(0.5).timeout
+			color_rect.position = Vector2(0,0)
+			tween = create_tween().set_parallel()
+			tween.tween_property(color_rect, "modulate", Color.TRANSPARENT, 1.5)
+			tween.tween_property(color_rect, "scale", Vector2(1,1), 1.5)
 
 func transition_songs(next_level : Node, current_level : Node) -> void: 
-	if next_level.name != current_level.name:
-		audio_manager.crossfade_music_to(next_level.level_music_layer_1)
-		audio_manager.fade_layer_in(next_level.level_music_layer_2)
-	else :
-		audio_manager.crossfade_music_to(current_level.level_music_layer_1)
-		audio_manager.fade_layer_in(current_level.level_music_layer_2)
+	if current_level != null and next_level != null:
+		if next_level.name != current_level.name:
+			audio_manager.crossfade_music_to(next_level.level_music_layer_1)
+			audio_manager.fade_layer_in(next_level.level_music_layer_2)
+		else :
+			audio_manager.crossfade_music_to(current_level.level_music_layer_1)
+			audio_manager.fade_layer_in(current_level.level_music_layer_2)
 		
 func show_player_label():
 	player.show_label()

@@ -11,6 +11,7 @@ script = ExtResource("1_3asjn")
 scene_to_load = ExtResource("2_t8qc4")
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0, 0, 0, 1)
 position = Vector2(165.5, 308.5)
 scale = Vector2(4.64826, 2.74375)

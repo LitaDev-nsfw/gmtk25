@@ -7,8 +7,9 @@ signal add_time_to_loop
 @onready var label : Label = $Label
 @export var level_music_layer_1 : AudioStream = preload("res://assets/audio/music/Loop 1.wav")
 @export var level_music_layer_2 : AudioStream = preload("res://assets/audio/music/Loop 2.wav")
-
+var plank_scene : PackedScene = preload("res://scenes/placed_plank.tscn")
 func _ready() -> void:
+	EventSystem.connect("place_plank", place_plank)
 	if label: # set the level name for debugging
 		label.text = name
 		label.position = Vector2(920.0, 123)
@@ -24,3 +25,10 @@ func _change_level() -> void:
 # called by each levels puzzle
 func _repeat_level() -> void:
 	repeat_level.emit() # will be recieved by game.gd
+
+func place_plank(player_pos : Vector2, direction : Vector2 ) -> void:
+	var plank = plank_scene.instantiate()
+	plank.position = player_pos
+	add_child(plank)
+	var tween = create_tween()
+	tween.tween_property(plank, "position", plank.position + (direction/3), 1)

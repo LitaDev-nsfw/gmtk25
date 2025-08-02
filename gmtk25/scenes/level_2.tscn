@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtnnhjmopedsx"]
+[gd_scene load_steps=12 format=3 uid="uid://dtnnhjmopedsx"]
 
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_pbc48"]
 [ext_resource type="AudioStream" uid="uid://43l4s4rrrdsk" path="res://assets/audio/music/GMTK Spooks.wav" id="2_b4j7a"]
@@ -14,11 +14,19 @@ font_size = 40
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0kc7"]
 size = Vector2(82.9847, 20)
 
+[sub_resource type="Gradient" id="Gradient_y0kc7"]
+offsets = PackedFloat32Array(0, 0.455674)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ne2mo"]
+gradient = SubResource("Gradient_y0kc7")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Level2" type="Node2D"]
 position = Vector2(2, 10)
 script = ExtResource("1_pbc48")
 level_music_layer_1 = ExtResource("2_b4j7a")
-level_music_layer_2 = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(961, 544)
@@ -76,5 +84,16 @@ position = Vector2(1867, 511)
 rotation = 1.56721
 scale = Vector2(19.9547, 7.19743)
 shape = SubResource("RectangleShape2D_y0kc7")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1255, 116)
+scale = Vector2(27.7909, 15.3432)
+color = Color(1, 1, 0.176471, 1)
+texture = SubResource("GradientTexture2D_ne2mo")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.623988, 0.454981, 0.413849, 1)
+energy = 0.44
+blend_mode = 1
 
 [connection signal="change_level" from="Interactable" to="." method="_change_level"]

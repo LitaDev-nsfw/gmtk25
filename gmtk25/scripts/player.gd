@@ -5,6 +5,7 @@ const SPEED = 400.0
 @onready var plank: Sprite2D = $Plank
 @onready var plank_label: Label = $PlankLabel
 var plank_count : int = 0
+var last_direction: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	EventSystem.connect("player_picked_up_plank", pick_up_plank)
@@ -33,6 +34,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Globals.player_can_move:
 		move_and_slide()
+		
+	if velocity != Vector2(0,0):
+		last_direction = velocity
 
 # do some animation?
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -43,6 +47,7 @@ func reset_pos() -> void:
 	tween.tween_property(self, "position", Vector2(150, 150), 0.5)
 	
 func show_label() -> void:
+	Globals.player_can_move = true
 	label.text = ""
 	label.show()
 	var tween = create_tween()
@@ -60,11 +65,13 @@ func pick_up_plank():
 	plank_label.text = str(plank_count)
 
 func place_plank():
-	plank_count -= 1
-	plank_label.text = str(plank_count)
-	if plank_count == 0:
-		plank.hide()
-		plank_label.hide()
+	if plank_count > 0:
+		EventSystem.place_plank.emit(self.position, last_direction)
+		plank_count -= 1
+		plank_label.text = str(plank_count)
+		if plank_count == 0:
+			plank.hide()
+			plank_label.hide()
 
 func remove_planks():
 	plank_count = 0
@@ -73,5 +80,6 @@ func remove_planks():
 	plank_label.hide()
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action("place"):
+	if event.is_action("place") and event.is_pressed():
+		print("place")
 		place_plank()

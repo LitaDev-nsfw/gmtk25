@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://3aurnou1esgf"]
+
+[ext_resource type="Texture2D" uid="uid://cwsajgkrdv3im" path="res://assets/visuals/square.png" id="1_81qes"]
+[ext_resource type="Script" uid="uid://c2n3ttndrlp0q" path="res://scripts/placed_plank.gd" id="1_e88jq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e88jq"]
+size = Vector2(93, 90)
+
+[node name="PlacedPlank" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_e88jq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0832972, 0.100715)
+texture = ExtResource("1_81qes")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_e88jq")
