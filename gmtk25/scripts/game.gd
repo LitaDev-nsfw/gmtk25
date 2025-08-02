@@ -82,6 +82,8 @@ func _on_timer_timeout() -> void:
 	if current_level != null and next_level != null:
 		next_level.name = "Level1"
 		transition(next_level, current_level)
+	
+	EventSystem.remove_player_planks.emit()
 
 func update_loop_time(added_time : int) -> void:
 	timer.wait_time += added_time # TODO, this will only add time to the total timer, the current loop wont be affected

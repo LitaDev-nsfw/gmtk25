@@ -8,7 +8,7 @@ var plank_count : int = 0
 
 func _ready() -> void:
 	EventSystem.connect("player_picked_up_plank", pick_up_plank)
-
+	EventSystem.connect("remove_player_planks", remove_planks)
 	label.hide()
 	plank.hide()
 	plank_label.hide()
@@ -56,6 +56,7 @@ func show_label() -> void:
 func pick_up_plank():
 	plank_count += 1
 	plank.show()
+	plank_label.show()
 	plank_label.text = str(plank_count)
 
 func place_plank():
@@ -63,7 +64,14 @@ func place_plank():
 	plank_label.text = str(plank_count)
 	if plank_count == 0:
 		plank.hide()
+		plank_label.hide()
 
+func remove_planks():
+	plank_count = 0
+	plank_label.text = str(plank_count)
+	plank.hide()
+	plank_label.hide()
+	
 func _input(event: InputEvent) -> void:
 	if event.is_action("place"):
 		place_plank()
