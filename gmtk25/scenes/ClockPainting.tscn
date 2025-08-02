@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuwihsmxsnv6x"]
+
+[ext_resource type="Script" uid="uid://ef51hj0i1ffm" path="res://scripts/paiting.gd" id="1_lwxcu"]
+[ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="2_sfxrh"]
+[ext_resource type="Texture2D" uid="uid://dp4r6ymjkqh77" path="res://assets/visuals/Clock_Painting.png" id="3_lwxcu"]
+[ext_resource type="PackedScene" uid="uid://lfwj3udiip6s" path="res://scenes/dialog_box.tscn" id="4_ioxgt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0dnc"]
+size = Vector2(5.07279, 37.9763)
+
+[node name="Paiting" type="Node2D"]
+scale = Vector2(5.27103, 3.81552)
+script = ExtResource("1_lwxcu")
+
+[node name="FirstSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.74, 1.90265)
+texture = ExtResource("2_sfxrh")
+
+[node name="SecondSprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.0696594, 0.300807)
+texture = ExtResource("3_lwxcu")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(-0.402605, -0.314448)
+collision_layer = 2147483648
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4.241, 50.0091)
+scale = Vector2(51.356, 15.686)
+shape = SubResource("RectangleShape2D_u0dnc")
+
+[node name="DialogBox" parent="." instance=ExtResource("4_ioxgt")]
+position = Vector2(-6.26063, 103.525)
+rotation = -0.000650526
+dialog = Array[String](["\"Persistence of Memory\"", "Painted by Salvador Dalí", "One thing Dalí makes very clear, is that time passes but leaves behind memories; ", "The memory persists..."])
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

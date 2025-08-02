@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://djg2j1nqsjehp"]
 
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_uwxec"]
-[ext_resource type="Texture2D" uid="uid://bcq0vdo0d3c6u" path="res://assets/visuals/lvl_3.png" id="2_uwxec"]
+[ext_resource type="Texture2D" uid="uid://cbu314soo330p" path="res://assets/visuals/Level3.png" id="2_uwxec"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_uwxec"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uwxec"]
@@ -14,8 +14,8 @@ size = Vector2(82.9847, 20)
 script = ExtResource("1_uwxec")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(961, 544)
-scale = Vector2(4.99023, 3.50865)
+position = Vector2(962.5, 539.5)
+scale = Vector2(11.1754, 6.51205)
 texture = ExtResource("2_uwxec")
 
 [node name="Label" type="Label" parent="."]
