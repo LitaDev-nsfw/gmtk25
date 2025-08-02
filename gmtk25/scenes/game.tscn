@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxm1ciglp7qh0"]
+[gd_scene load_steps=8 format=3 uid="uid://cxm1ciglp7qh0"]
 
 [ext_resource type="Script" uid="uid://2brnat7foo8u" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://do7a5j4m5dryv" path="res://scenes/level_1.tscn" id="2_lnu2h"]
@@ -6,9 +6,6 @@
 [ext_resource type="Script" uid="uid://diekl7drknjbv" path="res://scripts/loop_timer_label.gd" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://crn8mk5tqb015" path="res://scripts/audio_manager.gd" id="5_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://cva7pd2adqmyw" path="res://assets/audio/sfx/loop end idea.wav" id="6_p57ef"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
-size = Vector2(82.9847, 20)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lnu2h"]
 font_size = 50
@@ -22,30 +19,6 @@ position = Vector2(946, 569)
 scale = Vector2(0.979959, 0.957046)
 
 [node name="Level1" parent="." instance=ExtResource("2_lnu2h")]
-
-[node name="Walls" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
-position = Vector2(964, 0)
-scale = Vector2(23.2573, 2.61271)
-shape = SubResource("RectangleShape2D_lbhrr")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
-position = Vector2(974, 1089)
-scale = Vector2(23.2573, 2.61271)
-shape = SubResource("RectangleShape2D_lbhrr")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-33.0001, 542)
-rotation = -1.56659
-scale = Vector2(17.1748, 5.82034)
-shape = SubResource("RectangleShape2D_lbhrr")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1867, 511)
-rotation = 1.56721
-scale = Vector2(19.9547, 7.19743)
-shape = SubResource("RectangleShape2D_lbhrr")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

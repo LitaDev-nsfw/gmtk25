@@ -1,21 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://vvtc36xkb560"]
+[gd_scene load_steps=7 format=3 uid="uid://vvtc36xkb560"]
 
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_6j14n"]
-[ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_6malg"]
+[ext_resource type="Texture2D" uid="uid://c4t18g0w3gh62" path="res://assets/visuals/lvl_4.png" id="2_rbbjd"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_6j14n"]
 [ext_resource type="PackedScene" uid="uid://csc3plow6hraf" path="res://scenes/void.tscn" id="4_rbbjd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6j14n"]
 font_size = 40
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbbjd"]
+size = Vector2(82.9847, 20)
+
 [node name="Level4" type="Node2D"]
-modulate = Color(1, 0, 0, 1)
 script = ExtResource("1_6j14n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(961, 544)
-scale = Vector2(15.263, 8.93256)
-texture = ExtResource("1_6malg")
+scale = Vector2(2.76035, 2.39652)
+texture = ExtResource("2_rbbjd")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 920.0
@@ -31,5 +33,29 @@ position = Vector2(273, 635)
 [node name="Void" parent="." instance=ExtResource("4_rbbjd")]
 position = Vector2(470, 260)
 scale = Vector2(17.8041, 9.42954)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(964, -1319)
+scale = Vector2(23.2573, 2.61271)
+shape = SubResource("RectangleShape2D_rbbjd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(979, 2504)
+scale = Vector2(23.2573, 2.61271)
+shape = SubResource("RectangleShape2D_rbbjd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-94, 537)
+rotation = -1.56659
+scale = Vector2(51.0748, 10.3227)
+shape = SubResource("RectangleShape2D_rbbjd")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(2170, 562)
+rotation = 1.56721
+scale = Vector2(46.8418, 22.8852)
+shape = SubResource("RectangleShape2D_rbbjd")
 
 [connection signal="change_level" from="Puzzle" to="." method="_change_level"]

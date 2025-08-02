@@ -63,3 +63,7 @@ func place_plank():
 	plank_label.text = str(plank_count)
 	if plank_count == 0:
 		plank.hide()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action("place"):
+		place_plank()

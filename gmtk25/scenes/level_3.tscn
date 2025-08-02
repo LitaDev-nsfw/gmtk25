@@ -1,20 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://djg2j1nqsjehp"]
+[gd_scene load_steps=6 format=3 uid="uid://djg2j1nqsjehp"]
 
-[ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_h23n6"]
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_uwxec"]
+[ext_resource type="Texture2D" uid="uid://bcq0vdo0d3c6u" path="res://assets/visuals/lvl_3.png" id="2_uwxec"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_uwxec"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uwxec"]
 font_size = 40
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwxec"]
+size = Vector2(82.9847, 20)
+
 [node name="Level3" type="Node2D"]
-modulate = Color(1, 1, 0.454902, 1)
 script = ExtResource("1_uwxec")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(961, 544)
-scale = Vector2(15.263, 8.93256)
-texture = ExtResource("1_h23n6")
+scale = Vector2(4.99023, 3.50865)
+texture = ExtResource("2_uwxec")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 920.0
@@ -26,5 +28,29 @@ label_settings = SubResource("LabelSettings_uwxec")
 
 [node name="Puzzle" parent="." instance=ExtResource("3_uwxec")]
 position = Vector2(529, 166)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(964, 0)
+scale = Vector2(23.2573, 2.61271)
+shape = SubResource("RectangleShape2D_uwxec")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(974, 1089)
+scale = Vector2(23.2573, 2.61271)
+shape = SubResource("RectangleShape2D_uwxec")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-33.0001, 542)
+rotation = -1.56659
+scale = Vector2(17.1748, 5.82034)
+shape = SubResource("RectangleShape2D_uwxec")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1867, 511)
+rotation = 1.56721
+scale = Vector2(19.9547, 7.19743)
+shape = SubResource("RectangleShape2D_uwxec")
 
 [connection signal="change_level" from="Puzzle" to="." method="_change_level"]

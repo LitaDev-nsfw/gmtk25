@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://do7a5j4m5dryv"]
+[gd_scene load_steps=10 format=3 uid="uid://do7a5j4m5dryv"]
 
-[ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="1_bswci"]
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_rus8k"]
+[ext_resource type="Texture2D" uid="uid://d2a010jeu3xc3" path="res://assets/visuals/lvl_1.png" id="2_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_rus8k"]
 [ext_resource type="PackedScene" uid="uid://dn74762yi4qyt" path="res://scenes/Dial_Phone.tscn" id="4_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://dnp1dotwmus35" path="res://scenes/Toy_Blocks.tscn" id="5_4nkto"]
@@ -11,15 +11,17 @@
 [sub_resource type="LabelSettings" id="LabelSettings_rus8k"]
 font_size = 40
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa8r4"]
+size = Vector2(82.9847, 20)
+
 [node name="Level1" type="Node2D"]
 position = Vector2(7, -2)
 script = ExtResource("1_rus8k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.239216, 1, 1)
 position = Vector2(961, 544)
-scale = Vector2(15.3622, 8.93256)
-texture = ExtResource("1_bswci")
+scale = Vector2(5.01164, 3.10574)
+texture = ExtResource("2_pa8r4")
 
 [node name="Interactable" parent="." instance=ExtResource("3_rus8k")]
 position = Vector2(1751, 737)
@@ -53,6 +55,30 @@ label_settings = SubResource("LabelSettings_rus8k")
 
 [node name="Voices" type="AudioStreamPlayer2D" parent="Audio"]
 position = Vector2(1744, 947)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(964, 0)
+scale = Vector2(23.2573, 2.61271)
+shape = SubResource("RectangleShape2D_pa8r4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(974, 1089)
+scale = Vector2(23.2573, 2.61271)
+shape = SubResource("RectangleShape2D_pa8r4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-33.0001, 542)
+rotation = -1.56659
+scale = Vector2(17.1748, 5.82034)
+shape = SubResource("RectangleShape2D_pa8r4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1867, 511)
+rotation = 1.56721
+scale = Vector2(19.9547, 7.19743)
+shape = SubResource("RectangleShape2D_pa8r4")
 
 [connection signal="change_level" from="Interactable" to="." method="_change_level"]
 [connection signal="repeat_level" from="Interactable" to="." method="_repeat_level"]
