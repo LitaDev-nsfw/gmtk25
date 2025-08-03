@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://p5yfdtss24qa"]
+
+[ext_resource type="Script" uid="uid://c0kawq8564akm" path="res://scripts/number_lock_lvl2.gd" id="1_kvpnu"]
+[ext_resource type="PackedScene" uid="uid://ctqujv0aqssep" path="res://scenes/number.tscn" id="2_rvrft"]
+
+[node name="NumberLockLVL2" type="Node2D"]
+script = ExtResource("1_kvpnu")
+
+[node name="1" parent="." instance=ExtResource("2_rvrft")]
+position = Vector2(-247.942, -5.80539)
+scale = Vector2(0.131342, 0.161705)
+
+[node name="2" parent="." instance=ExtResource("2_rvrft")]
+position = Vector2(-83.8845, -4.61059)
+scale = Vector2(0.131342, 0.161705)
+
+[node name="3" parent="." instance=ExtResource("2_rvrft")]
+position = Vector2(84.1155, -4.61059)
+scale = Vector2(0.131342, 0.161705)
+
+[connection signal="check_combination" from="1" to="." method="_on__check_combination"]
+[connection signal="check_combination" from="2" to="." method="_on__check_combination"]
+[connection signal="check_combination" from="3" to="." method="_on__check_combination"]

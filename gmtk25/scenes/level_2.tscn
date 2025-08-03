@@ -84,3 +84,4 @@ position = Vector2(964, 261)
 texture = ExtResource("6_wo48x")
 
 [connection signal="change_level" from="Interactable" to="." method="_change_level"]
+[connection signal="change_level" from="NumberLock" to="." method="_change_level"]

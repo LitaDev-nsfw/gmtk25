@@ -18,7 +18,9 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_uwxec")
 
 [node name="Puzzle" parent="." instance=ExtResource("3_uwxec")]
-position = Vector2(529, 166)
+position = Vector2(944, 265)
+scene_to_load = ExtResource("4_1pn4d")
+is_puzzle = true
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
