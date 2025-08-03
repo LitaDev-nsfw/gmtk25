@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://du6h2oyy5sg27"]
+[gd_scene load_steps=5 format=3 uid="uid://du6h2oyy5sg27"]
 
 [ext_resource type="Script" uid="uid://bmgn7b7h20hfs" path="res://scripts/interactable.gd" id="1_3asjn"]
-[ext_resource type="PackedScene" uid="uid://cpyce2i7r3wyc" path="res://scenes/number_lock.tscn" id="2_t8qc4"]
 [ext_resource type="Texture2D" uid="uid://cwsajgkrdv3im" path="res://assets/visuals/square.png" id="3_o0ci7"]
 [ext_resource type="PackedScene" uid="uid://d3apiw34m0up3" path="res://scenes/collision_component.tscn" id="3_wsi0i"]
 
@@ -10,7 +9,6 @@ font_size = 176
 
 [node name="Interactable" type="Node2D"]
 script = ExtResource("1_3asjn")
-scene_to_load = ExtResource("2_t8qc4")
 
 [node name="Background" type="Sprite2D" parent="."]
 visible = false

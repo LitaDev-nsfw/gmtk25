@@ -21,7 +21,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="Level2" type="Node2D"]
-position = Vector2(2, 10)
 script = ExtResource("1_pbc48")
 level_music_layer_1 = ExtResource("2_b4j7a")
 
@@ -31,15 +30,15 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_wo48x")
 
 [node name="Interactable" parent="." instance=ExtResource("3_pbc48")]
-position = Vector2(941, 245)
-scale = Vector2(0.554832, 1.50658)
+position = Vector2(940, 298)
 scene_to_load = ExtResource("5_y0kc7")
 is_puzzle = true
+interactable_name = "level2LockedDoor"
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
-position = Vector2(964, 0)
+position = Vector2(966, 184)
 scale = Vector2(23.2573, 2.61271)
 shape = SubResource("RectangleShape2D_y0kc7")
 
@@ -72,12 +71,12 @@ energy = 0.44
 blend_mode = 1
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(935, 255)
+position = Vector2(942, 1033)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(965, 560)
 
-[node name="DoorClosed" type="Sprite2D" parent="."]
+[node name="Level2Door" type="Sprite2D" parent="."]
 position = Vector2(942, 250)
 texture = ExtResource("5_b4j7a")
 
@@ -85,5 +84,25 @@ texture = ExtResource("5_b4j7a")
 visible = false
 position = Vector2(964, 261)
 texture = ExtResource("6_wo48x")
+
+[node name="Interactable2" parent="." instance=ExtResource("3_pbc48")]
+position = Vector2(411, 343)
+interactable_name = "level2Cobweb"
+
+[node name="Interactable3" parent="." instance=ExtResource("3_pbc48")]
+position = Vector2(994, 900)
+interactable_name = "level2KidsBlocks"
+
+[node name="Interactable4" parent="." instance=ExtResource("3_pbc48")]
+position = Vector2(1492, 502)
+interactable_name = "level2Mirror"
+
+[node name="Interactable5" parent="." instance=ExtResource("3_pbc48")]
+position = Vector2(420, 633)
+interactable_name = "level2Cracks"
+
+[node name="Interactable6" parent="." instance=ExtResource("3_pbc48")]
+position = Vector2(717, 333)
+interactable_name = "level2Drawer"
 
 [connection signal="change_level" from="Interactable" to="." method="_change_level"]

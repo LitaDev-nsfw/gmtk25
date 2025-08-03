@@ -21,7 +21,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="Level3" type="Node2D"]
-position = Vector2(2, 10)
 script = ExtResource("1_uwxec")
 level_music_layer_1 = ExtResource("2_hhfj6")
 
@@ -31,10 +30,10 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_uwxec")
 
 [node name="Interactable" parent="." instance=ExtResource("3_uwxec")]
-position = Vector2(941, 245)
-scale = Vector2(0.508377, 1.28679)
+position = Vector2(947, 282)
 scene_to_load = ExtResource("4_1pn4d")
 is_puzzle = true
+interactable_name = "level3LockedDoor"
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -72,12 +71,12 @@ energy = 0.44
 blend_mode = 1
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(935, 255)
+position = Vector2(967, 1046)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(965, 560)
 
-[node name="DoorClosed" type="Sprite2D" parent="."]
+[node name="Level3Door" type="Sprite2D" parent="."]
 position = Vector2(942, 250)
 texture = ExtResource("6_wae8j")
 
@@ -85,5 +84,21 @@ texture = ExtResource("6_wae8j")
 visible = false
 position = Vector2(964, 261)
 texture = ExtResource("7_ha73p")
+
+[node name="Interactable2" parent="." instance=ExtResource("3_uwxec")]
+position = Vector2(1319, 422)
+interactable_name = "level3Wardrobe"
+
+[node name="Interactable3" parent="." instance=ExtResource("3_uwxec")]
+position = Vector2(523, 479)
+interactable_name = "level3Drawer1"
+
+[node name="Interactable4" parent="." instance=ExtResource("3_uwxec")]
+position = Vector2(683, 320)
+interactable_name = "level3Drawer2"
+
+[node name="Interactable5" parent="." instance=ExtResource("3_uwxec")]
+position = Vector2(1404, 758)
+interactable_name = "level3Cabinet"
 
 [connection signal="change_level" from="Interactable" to="." method="_change_level"]

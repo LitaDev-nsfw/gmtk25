@@ -1,32 +1,36 @@
-[gd_scene load_steps=15 format=3 uid="uid://hbhc16eqvpv2"]
+[gd_scene load_steps=16 format=3 uid="uid://hbhc16eqvpv2"]
 
 [ext_resource type="Script" uid="uid://cw1okpj8i6w2b" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="2_g2els"]
-[ext_resource type="Texture2D" uid="uid://c0hika7i8246y" path="res://assets/visuals/ART/GMTK game jam 25/lil guy .png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://j1a3g0brdrrr" path="res://assets/visuals/ART/GMTK game jam 25/lil guy sheet (lita).png" id="2_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("2_qhqgy")
-region = Rect2(0, 0, 113, 136)
+region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("2_qhqgy")
-region = Rect2(113, 0, 113, 136)
+region = Rect2(128, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_qhqgy")
-region = Rect2(226, 0, 113, 136)
+region = Rect2(256, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("2_qhqgy")
-region = Rect2(0, 136, 113, 136)
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("2_qhqgy")
-region = Rect2(113, 136, 113, 136)
+region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("2_qhqgy")
-region = Rect2(226, 136, 113, 136)
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y4r1p"]
 animations = [{
@@ -57,12 +61,21 @@ animations = [{
 "loop": true,
 "name": &"forward",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(126, 129)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
+radius = 40.0
+height = 109.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_g2els"]
 font_size = 94
@@ -76,9 +89,8 @@ script = ExtResource("1_3vyb7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y4r1p")
-animation = &"back"
+animation = &"idle"
 autoplay = "forward"
-frame_progress = 0.691076
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -88,7 +100,7 @@ shape = SubResource("CircleShape2D_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -1.5)
-shape = SubResource("RectangleShape2D_g2els")
+shape = SubResource("CapsuleShape2D_qhqgy")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -23.0

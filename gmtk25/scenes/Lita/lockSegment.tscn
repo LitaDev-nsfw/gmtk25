@@ -1,0 +1,166 @@
+[gd_scene load_steps=31 format=3 uid="uid://b0qax8x1hcpvi"]
+
+[ext_resource type="Script" uid="uid://c2fa1wy37hu6t" path="res://scripts/Lita/UI/lock_segment.gd" id="1_25uau"]
+[ext_resource type="Texture2D" uid="uid://b1culojf4mrjt" path="res://assets/visuals/ART/GMTK game jam 25/lock/letter lock/A.png" id="2_8pvcw"]
+[ext_resource type="Texture2D" uid="uid://dbx86f6bnlylf" path="res://assets/visuals/ART/GMTK game jam 25/lock/letter lock/D.png" id="3_xrxqd"]
+[ext_resource type="Texture2D" uid="uid://dnao6i1akxhit" path="res://assets/visuals/ART/GMTK game jam 25/lock/letter lock/F.png" id="4_rffgl"]
+[ext_resource type="Texture2D" uid="uid://bty2s4be12fg8" path="res://assets/visuals/ART/GMTK game jam 25/lock/letter lock/J.png" id="5_w3evq"]
+[ext_resource type="Texture2D" uid="uid://drmfuqobo7t0g" path="res://assets/visuals/ART/GMTK game jam 25/lock/letter lock/L.png" id="6_gj7jt"]
+[ext_resource type="Texture2D" uid="uid://dnq3r45fq3ljs" path="res://assets/visuals/ART/GMTK game jam 25/lock/letter lock/M.png" id="7_fw8nr"]
+[ext_resource type="Texture2D" uid="uid://4f17oud6k7un" path="res://assets/visuals/ART/GMTK game jam 25/lock/letter lock/R.png" id="8_p8duf"]
+[ext_resource type="Texture2D" uid="uid://wxhn53860jgh" path="res://assets/visuals/ART/GMTK game jam 25/lock/1.png" id="9_vhdbu"]
+[ext_resource type="Texture2D" uid="uid://bde7b3dsnd410" path="res://assets/visuals/ART/GMTK game jam 25/lock/2.png" id="10_bim07"]
+[ext_resource type="Texture2D" uid="uid://cj00vduratdva" path="res://assets/visuals/ART/GMTK game jam 25/lock/3.png" id="11_ehay5"]
+[ext_resource type="Texture2D" uid="uid://d1m6ddv63wja1" path="res://assets/visuals/ART/GMTK game jam 25/lock/4.png" id="12_6u7vj"]
+[ext_resource type="Texture2D" uid="uid://6f6echqhn8i3" path="res://assets/visuals/ART/GMTK game jam 25/lock/5.png" id="13_suqfp"]
+[ext_resource type="Texture2D" uid="uid://dr8n26ha28v5j" path="res://assets/visuals/ART/GMTK game jam 25/lock/6.png" id="14_6l7x4"]
+[ext_resource type="Texture2D" uid="uid://djsf0a7b18clq" path="res://assets/visuals/ART/GMTK game jam 25/lock/7.png" id="15_g3dvl"]
+[ext_resource type="Texture2D" uid="uid://bgdedu2p4slcp" path="res://assets/visuals/ART/GMTK game jam 25/lock/8.png" id="16_y3je2"]
+[ext_resource type="Texture2D" uid="uid://cteknaq7ryx6h" path="res://assets/visuals/ART/GMTK game jam 25/lock/9.png" id="17_4bqcp"]
+[ext_resource type="Texture2D" uid="uid://dos0g85n30omb" path="res://assets/visuals/ART/GMTK game jam 25/lock/empty lock .png" id="18_xrxqd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3pqd6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8pvcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xrxqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rffgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w3evq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gj7jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fw8nr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p8duf")
+}],
+"loop": true,
+"name": &"letters",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_vhdbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bim07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ehay5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6u7vj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_suqfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_6l7x4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_g3dvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_y3je2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4bqcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_xrxqd")
+}],
+"loop": true,
+"name": &"numbers",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8pvcw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrxqd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rffgl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3evq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gj7jt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fw8nr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p8duf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhdbu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bim07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehay5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6u7vj"]
+
+[node name="LockSegment" type="Control"]
+custom_minimum_size = Vector2(52.5, 240)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_25uau")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_3pqd6")
+animation = &"numbers"
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 53.0
+offset_bottom = 240.0
+theme_override_constants/separation = 0
+
+[node name="Up" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8pvcw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xrxqd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rffgl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_w3evq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gj7jt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_fw8nr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p8duf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_vhdbu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bim07")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ehay5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6u7vj")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+
+[node name="Down" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8pvcw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xrxqd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rffgl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_w3evq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gj7jt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_fw8nr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p8duf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_vhdbu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bim07")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ehay5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6u7vj")
+
+[connection signal="pressed" from="VBoxContainer/Up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="VBoxContainer/Down" to="." method="_on_down_pressed"]

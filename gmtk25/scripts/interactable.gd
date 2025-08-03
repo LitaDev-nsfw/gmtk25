@@ -1,15 +1,33 @@
 extends Node2D
+class_name Interactable
 
 @export var scene_to_load : PackedScene
 @export var is_puzzle : bool = false
+@export var interactable_name :String
+@export var one_time:= false
+var finished = false
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@export var collision_box_dimensions:= Vector2(207.0,100.0)
+		
 signal change_level
 signal repeat_level
 var child_scene : Node
 @onready var background: Sprite2D = $Background
+@onready var collision_shape: CollisionShape2D = $CollisionComponent/CollisionShape2D
 var player_is_in : bool = false
+
+signal OnInteract
+
+func on_interact():
+	OnInteract.emit(self)
+	if one_time:
+		$CollisionComponent/Label.text = ""
+
 func _ready() -> void:
+	$CollisionComponent.OnInteract.connect(on_interact)
+	
+	collision_shape.shape.size = collision_box_dimensions
 	if scene_to_load != null:
 		var scene = scene_to_load.instantiate()
 		scene.position = get_viewport().get_visible_rect().size / 2
@@ -22,28 +40,28 @@ func _ready() -> void:
 		child_scene.hide()
 		background.hide()
 
-func _on_collision_component_open_puzzle() -> void:
-	if child_scene.visible == true: # toggle
-		_on_collision_component_close_puzzle()
-	else:
-		child_scene._ready()
-		child_scene.show()
-		background.show()
-		Globals.player_can_move = false
-		if child_scene.name == "Mirror":
-			await get_tree().create_timer(5).timeout
-			if child_scene.visible:
-				hide_mirror()
+#func _on_collision_component_open_puzzle() -> void:
+#	if child_scene.visible == true: # toggle
+#		_on_collision_component_close_puzzle()
+#	else:
+#		child_scene._ready()
+#		child_scene.show()
+#		background.show()
+#		Globals.player_can_move = false
+#		if child_scene.name == "Mirror":
+#			await get_tree().create_timer(5).timeout
+#			if child_scene.visible:
+#				hide_mirror()
 
-func _on_collision_component_close_puzzle() -> void:
-	var dialog_box = child_scene.find_child("DialogBox")
-	if dialog_box != null:
-		dialog_box.reset_box()
-		
-	child_scene.hide()
-	background.hide()
-	Globals.player_can_move = true
-
+#func _on_collision_component_close_puzzle() -> void:
+#	var dialog_box = child_scene.find_child("DialogBox")
+#	if dialog_box != null:
+#		dialog_box.reset_box()
+#		
+#	child_scene.hide()
+#	background.hide()
+#	Globals.player_can_move = true
+#
 func _change_level():
 	change_level.emit()
 

@@ -1,179 +1,103 @@
-[gd_scene load_steps=14 format=3 uid="uid://vvtc36xkb560"]
+[gd_scene load_steps=11 format=3 uid="uid://vvtc36xkb560"]
 
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_6j14n"]
 [ext_resource type="Texture2D" uid="uid://cpkjfuelowe2" path="res://assets/visuals/ART/GMTK game jam 25/room 4 base.png" id="2_wom6i"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_6j14n"]
-[ext_resource type="PackedScene" uid="uid://csc3plow6hraf" path="res://scenes/void.tscn" id="4_rbbjd"]
-[ext_resource type="PackedScene" uid="uid://bfl4tb5sxphi1" path="res://scenes/placeable_area.tscn" id="5_wom6i"]
-[ext_resource type="Texture2D" uid="uid://dld1iv77ai3ar" path="res://assets/visuals/ART/GMTK game jam 25/door closed.png" id="6_x7blo"]
 [ext_resource type="Texture2D" uid="uid://cgv8sgx627xf0" path="res://assets/visuals/ART/GMTK game jam 25/door open.png" id="7_qsmat"]
 [ext_resource type="Texture2D" uid="uid://cjecb1tsoqigk" path="res://assets/visuals/ART/GMTK game jam 25/plank hanging off into void r4.png" id="8_yk4f3"]
 [ext_resource type="Texture2D" uid="uid://di2eyy567aphi" path="res://assets/visuals/ART/GMTK game jam 25/planks leaning against bed r4.png" id="9_cp0rv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbbjd"]
-size = Vector2(82.9847, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7blo"]
-size = Vector2(11.0275, 8.62079)
+size = Vector2(6.19628, 8.62079)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsmat"]
-size = Vector2(3.89194, 8.62079)
+size = Vector2(1.60501, 8.62079)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk4f3"]
-size = Vector2(7.91992, 6.23224)
+size = Vector2(4.443, 4.43318)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0rv"]
+size = Vector2(144, 192)
 
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_6j14n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(968.5, 589)
-scale = Vector2(2.10667, 1.91153)
+position = Vector2(464, 992)
 texture = ExtResource("2_wom6i")
-
-[node name="Puzzle" parent="." instance=ExtResource("3_6j14n")]
-position = Vector2(158, 617)
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
-position = Vector2(964, -1319)
-scale = Vector2(23.2573, 2.61271)
-shape = SubResource("RectangleShape2D_rbbjd")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
-position = Vector2(979, 2504)
-scale = Vector2(23.2573, 2.61271)
-shape = SubResource("RectangleShape2D_rbbjd")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-94, 537)
-rotation = -1.56659
-scale = Vector2(51.0748, 10.3227)
-shape = SubResource("RectangleShape2D_rbbjd")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
-position = Vector2(2170, 562)
-rotation = 1.56721
-scale = Vector2(46.8418, 22.8852)
-shape = SubResource("RectangleShape2D_rbbjd")
-
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
-position = Vector2(771, 2222)
+position = Vector2(312, 1816)
 rotation = 1.56721
 scale = Vector2(46.8418, 22.8852)
 shape = SubResource("RectangleShape2D_x7blo")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960.599, 1993.12)
+position = Vector2(424.192, 1709.56)
 rotation = 1.56721
 scale = Vector2(46.8418, 22.8852)
 shape = SubResource("RectangleShape2D_qsmat")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
-position = Vector2(65.7779, 2161.48)
+position = Vector2(56, 1808)
 rotation = 1.56721
 scale = Vector2(46.8418, 22.8852)
 shape = SubResource("RectangleShape2D_yk4f3")
 
-[node name="Void" type="Node2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+position = Vector2(-488, 384)
+polygon = PackedVector2Array(496, 1536, 488, -176, 1432, -200, 1432, 1584, 504, 1584, 496, 1776, 1544, 1760, 1544, -440, 344, -432, 376, 1544)
 
-[node name="Void" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(649, 1107)
-scale = Vector2(12.9683, 5.85189)
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
+position = Vector2(8, 584)
+polygon = PackedVector2Array(-8, 16, 120, 32, 120, 128, 120, 160, 0, 160)
 
-[node name="Void2" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(230, 1085)
-scale = Vector2(16.1337, 6.59864)
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls"]
+position = Vector2(-512, 392)
+polygon = PackedVector2Array(800, 224, 792, 352, 976, 352, 1064, 424, 1112, 544, 920, 560, 912, 624, 984, 664, 1000, 792, 872, 824, 872, 888, 1432, 896, 1464, 680, 1408, 360, 1144, 352, 1144, 208)
 
-[node name="Void3" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(134, 802)
-scale = Vector2(16.1337, 6.59864)
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Walls"]
+position = Vector2(-528, 400)
+polygon = PackedVector2Array(808, 584, 808, 616, 728, 648, 696, 688, 672, 720, 680, 784, 720, 808, 808, 840, 808, 880, 504, 888, 512, 584)
 
-[node name="Void4" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(1252, 796)
-scale = Vector2(16.1337, 6.59864)
+[node name="PlankVoid3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(200, 648)
+shape = SubResource("RectangleShape2D_cp0rv")
 
-[node name="Void5" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(1424, 1085)
-scale = Vector2(16.1337, 6.59864)
+[node name="PlankVoid2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(344, 920)
+shape = SubResource("RectangleShape2D_cp0rv")
 
-[node name="Void6" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(1618, 643)
-scale = Vector2(16.1337, 6.59864)
+[node name="PlankVoid1" type="CollisionShape2D" parent="Walls"]
+position = Vector2(312, 1184)
+shape = SubResource("RectangleShape2D_cp0rv")
 
-[node name="Void7" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(1571, 340)
-scale = Vector2(16.1337, 6.59864)
+[node name="Special Collision" type="CollisionShape2D" parent="Walls"]
+position = Vector2(600, 1856)
+shape = SubResource("RectangleShape2D_cp0rv")
 
-[node name="Void8" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(1202, 125)
-scale = Vector2(16.1337, 6.59864)
+[node name="Plank1" parent="." instance=ExtResource("3_6j14n")]
+position = Vector2(304, 1328)
+interactable_name = "level4Plank1"
 
-[node name="Void9" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(771, 11.9999)
-scale = Vector2(16.1337, 6.59864)
+[node name="Plank2" parent="." instance=ExtResource("3_6j14n")]
+position = Vector2(336, 1072)
+interactable_name = "level4Plank2"
 
-[node name="Void10" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(1028, 1078)
-scale = Vector2(16.1337, 6.59864)
-
-[node name="Void11" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(670, 624)
-scale = Vector2(25.2831, 1.93561)
-
-[node name="Void13" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(322, 74.9999)
-scale = Vector2(25.2831, 1.93561)
-
-[node name="Void14" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(294, -371)
-scale = Vector2(25.2831, 1.93561)
-
-[node name="Void12" parent="Void" instance=ExtResource("4_rbbjd")]
-position = Vector2(1135, -259)
-scale = Vector2(37.7354, 5.04044)
-
-[node name="PlaceableArea" type="Node2D" parent="."]
-
-[node name="PlaceableArea" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
-position = Vector2(183, 1298)
-scale = Vector2(1.76546, 1.22817)
-
-[node name="PlaceableArea2" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
-position = Vector2(663, 1298)
-scale = Vector2(1.94295, 0.928586)
-
-[node name="PlaceableArea3" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
-position = Vector2(1110, 1294)
-scale = Vector2(1.75848, 1.16605)
-
-[node name="PlaceableArea4" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
-position = Vector2(1609, 1298)
-scale = Vector2(2.47173, 1.24597)
-
-[node name="PlaceableArea5" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
-position = Vector2(758, 798)
-scale = Vector2(2.44065, 1.13327)
-
-[node name="PlaceableArea6" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
-position = Vector2(358, 188)
-scale = Vector2(3.11095, 1.27316)
+[node name="Plank3" parent="." instance=ExtResource("3_6j14n")]
+position = Vector2(184, 784)
+interactable_name = "level4Plank3"
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(1000, 2185)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1002, 2348)
-
-[node name="DoorClosed" type="Sprite2D" parent="."]
-position = Vector2(945.85, -892.005)
-scale = Vector2(1.6427, 1.68287)
-texture = ExtResource("6_x7blo")
+position = Vector2(424, 1864)
 
 [node name="DoorOpen" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(965, -875)
-scale = Vector2(1.6427, 1.68287)
+position = Vector2(456, 240)
 texture = ExtResource("7_qsmat")
 
 [node name="PlankHangingOffIntoVoidR4" type="Sprite2D" parent="."]
@@ -183,8 +107,17 @@ scale = Vector2(1.8881, 1.5955)
 texture = ExtResource("8_yk4f3")
 
 [node name="PlanksLeaningAgainstBedR4" type="Sprite2D" parent="."]
-position = Vector2(1770, 294)
-scale = Vector2(1.94831, 2.02212)
+position = Vector2(584, 1848)
 texture = ExtResource("9_cp0rv")
 
-[connection signal="change_level" from="Puzzle" to="." method="_change_level"]
+[node name="Interactable" parent="." instance=ExtResource("3_6j14n")]
+position = Vector2(456, 256)
+interactable_name = "level4Door"
+
+[node name="Interactable3" parent="." instance=ExtResource("3_6j14n")]
+position = Vector2(40, 1496)
+interactable_name = "level4Planks2"
+
+[node name="Interactable2" parent="." instance=ExtResource("3_6j14n")]
+position = Vector2(520, 1864)
+interactable_name = "level4Planks1"

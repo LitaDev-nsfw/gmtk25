@@ -15,10 +15,12 @@ debug_color = Color(0.11133, 1, 0.706515, 0.419608)
 
 [node name="Label" type="Label" parent="."]
 z_index = 100
-offset_top = -49.0
-offset_right = 89.0
-offset_bottom = -26.0
-text = "Interact. (E)"
+offset_left = -44.0
+offset_top = -15.0
+offset_right = 45.0
+offset_bottom = 8.0
+text = "(E)"
+horizontal_alignment = 1
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

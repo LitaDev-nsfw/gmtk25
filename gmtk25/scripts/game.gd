@@ -22,6 +22,8 @@ func _ready() -> void:
 	EventSystem.connect("play_mirror_line", show_player_label)
 	EventSystem.connect("player_fell", _repeat_level)
 	
+	level_1.connect("LoadVisual", $UI.load_visual)
+	level_1.connect("StartLockPuzzle", $UI.start_lock_puzzle)
 	level_1.connect("change_level", _on_player_change_level)
 	level_1.connect("repeat_level", _repeat_level)
 	level_1.connect("add_time_to_loop", update_loop_time)
@@ -92,7 +94,13 @@ func update_loop_time(added_time : int) -> void:
 	timer.wait_time += added_time # TODO, this will only add time to the total timer, the current loop wont be affected
 
 func _repeat_level() -> void:
+	Globals.solvedLock1 = false
+	Globals.solvedLock2 = false
+	Globals.solvedLock3 = false
+	Globals.plankCount = 0
 	var current_level : Node = find_level()
+	if current_level.name == "Level5":
+		return
 	var current_level_name = current_level.name
 	if current_level:
 		var next_level : Level = null
@@ -110,7 +118,7 @@ func _repeat_level() -> void:
 		if next_level != null:
 			transition(next_level, current_level)
 
-func transition(next_level : Node, current_level : Node) -> void: 
+func transition(next_level : Level, current_level : Level) -> void: 
 	if current_level != null and next_level != null:
 		loop_sound.play()
 		transition_songs(next_level, current_level)
@@ -124,6 +132,9 @@ func transition(next_level : Node, current_level : Node) -> void:
 			current_level.queue_free()
 			call_deferred("add_child", next_level)
 			await get_tree().create_timer(0.5).timeout
+			next_level.LoadVisual.connect($UI.load_visual)
+			next_level.StartLockPuzzle.connect($UI.start_lock_puzzle)
+			next_level.connectInteractables()
 			color_rect.position = Vector2(0,0)
 			tween = create_tween().set_parallel()
 			tween.tween_property(color_rect, "modulate", Color.TRANSPARENT, 1.5)
