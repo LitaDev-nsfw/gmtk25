@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://ty8ouct0iohp"]
+
+[ext_resource type="Script" uid="uid://cnrljdh0p4heh" path="res://scripts/number_lock_lvl3.gd" id="1_dl22u"]
+[ext_resource type="PackedScene" uid="uid://ctqujv0aqssep" path="res://scenes/number.tscn" id="2_scvdm"]
+
+[node name="NumberLockLVL3" type="Node2D"]
+script = ExtResource("1_dl22u")
+
+[node name="1" parent="." instance=ExtResource("2_scvdm")]
+position = Vector2(-571.228, -5.318)
+scale = Vector2(0.131342, 0.161705)
+
+[node name="2" parent="." instance=ExtResource("2_scvdm")]
+position = Vector2(-407.17, -4.1232)
+scale = Vector2(0.131342, 0.161705)
+
+[node name="3" parent="." instance=ExtResource("2_scvdm")]
+position = Vector2(-239.17, -4.1232)
+scale = Vector2(0.131342, 0.161705)
+
+[node name="4" parent="." instance=ExtResource("2_scvdm")]
+position = Vector2(-76, -5)
+scale = Vector2(0.131342, 0.161705)
+
+[node name="5" parent="." instance=ExtResource("2_scvdm")]
+position = Vector2(90, -5)
+scale = Vector2(0.131342, 0.161705)
+
+[node name="6" parent="." instance=ExtResource("2_scvdm")]
+position = Vector2(258, -5)
+scale = Vector2(0.131342, 0.161705)
+
+[node name="7" parent="." instance=ExtResource("2_scvdm")]
+position = Vector2(431, -5)
+scale = Vector2(0.131342, 0.161705)
+
+[node name="8" parent="." instance=ExtResource("2_scvdm")]
+position = Vector2(596, -5)
+scale = Vector2(0.131342, 0.161705)
+
+[connection signal="check_combination" from="1" to="." method="_on__check_combination"]
+[connection signal="check_combination" from="2" to="." method="_on__check_combination"]
+[connection signal="check_combination" from="3" to="." method="_on__check_combination"]
+[connection signal="check_combination" from="4" to="." method="_on__check_combination"]
+[connection signal="check_combination" from="5" to="." method="_on__check_combination"]
+[connection signal="check_combination" from="6" to="." method="_on__check_combination"]
+[connection signal="check_combination" from="7" to="." method="_on__check_combination"]
+[connection signal="check_combination" from="8" to="." method="_on__check_combination"]

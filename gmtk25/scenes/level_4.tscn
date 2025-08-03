@@ -20,11 +20,12 @@ scale = Vector2(11.3077, 10.1514)
 texture = ExtResource("2_rbbjd")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 920.0
+offset_left = 917.0
 offset_top = 123.0
-offset_right = 960.0
-offset_bottom = 146.0
-text = "LEVEL1"
+offset_right = 1063.0
+offset_bottom = 236.0
+text = "LEVEL 4
+"
 label_settings = SubResource("LabelSettings_6j14n")
 
 [node name="Puzzle" parent="." instance=ExtResource("3_6j14n")]

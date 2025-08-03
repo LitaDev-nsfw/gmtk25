@@ -24,7 +24,8 @@ offset_left = 920.0
 offset_top = 123.0
 offset_right = 960.0
 offset_bottom = 146.0
-text = "LEVEL1"
+text = "LEVEL5
+"
 label_settings = SubResource("LabelSettings_6j14n")
 
 [node name="Puzzle" parent="." instance=ExtResource("3_cynta")]

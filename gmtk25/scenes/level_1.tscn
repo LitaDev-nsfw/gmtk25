@@ -47,7 +47,7 @@ offset_left = 920.0
 offset_top = 123.0
 offset_right = 960.0
 offset_bottom = 146.0
-text = "LEVEL1"
+text = "LEVEL 1"
 label_settings = SubResource("LabelSettings_rus8k")
 
 [node name="Audio" type="Node" parent="."]

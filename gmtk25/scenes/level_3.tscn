@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://djg2j1nqsjehp"]
+[gd_scene load_steps=7 format=3 uid="uid://djg2j1nqsjehp"]
 
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_uwxec"]
 [ext_resource type="Texture2D" uid="uid://cbu314soo330p" path="res://assets/visuals/Level3.png" id="2_uwxec"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_uwxec"]
+[ext_resource type="PackedScene" uid="uid://ty8ouct0iohp" path="res://scenes/number_lock_lvl3.tscn" id="4_1pn4d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uwxec"]
 font_size = 40
@@ -23,11 +24,14 @@ offset_left = 920.0
 offset_top = 123.0
 offset_right = 960.0
 offset_bottom = 146.0
-text = "LEVEL1"
+text = "LEVEL 3
+"
 label_settings = SubResource("LabelSettings_uwxec")
 
 [node name="Puzzle" parent="." instance=ExtResource("3_uwxec")]
 position = Vector2(944, 265)
+scene_to_load = ExtResource("4_1pn4d")
+is_puzzle = true
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
