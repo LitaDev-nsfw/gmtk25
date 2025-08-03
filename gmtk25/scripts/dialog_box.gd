@@ -13,6 +13,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			label.text = dialog[it]
 			it+= 1
 
-func reset_box():
-	it=0
+func reset_box() -> void:
+	it = 1
 	label.text = dialog[0]

@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cpyce2i7r3wyc" path="res://scenes/number_lock.tscn" id="2_t8qc4"]
 [ext_resource type="Texture2D" uid="uid://cwsajgkrdv3im" path="res://assets/visuals/square.png" id="3_o0ci7"]
 [ext_resource type="PackedScene" uid="uid://d3apiw34m0up3" path="res://scenes/collision_component.tscn" id="3_wsi0i"]
-[ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="4_ibph6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w4xns"]
+font_size = 176
 
 [node name="Interactable" type="Node2D"]
 script = ExtResource("1_3asjn")
@@ -13,18 +15,28 @@ scene_to_load = ExtResource("2_t8qc4")
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(0, 0, 0, 1)
+z_index = 1000
 position = Vector2(165.5, 308.5)
 scale = Vector2(4.64826, 2.74375)
 texture = ExtResource("3_o0ci7")
 
-[node name="CollisionComponent" parent="." instance=ExtResource("3_wsi0i")]
+[node name="Label" type="Label" parent="Background"]
+top_level = true
+z_index = 1001
+offset_left = 1666.0
+offset_top = 69.0
+offset_right = 2313.0
+offset_bottom = 424.0
+scale = Vector2(0.347855, 0.325147)
+text = "(E) Exit
+"
+label_settings = SubResource("LabelSettings_w4xns")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-5, 6)
-scale = Vector2(0.568306, 0.521752)
-texture = ExtResource("4_ibph6")
+[node name="CollisionComponent" parent="." instance=ExtResource("3_wsi0i")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[connection signal="area_entered" from="CollisionComponent" to="." method="_on_collision_component_area_entered"]
+[connection signal="area_exited" from="CollisionComponent" to="." method="_on_collision_component_area_exited"]
 [connection signal="close_puzzle" from="CollisionComponent" to="." method="_on_collision_component_close_puzzle"]
 [connection signal="open_puzzle" from="CollisionComponent" to="." method="_on_collision_component_open_puzzle"]

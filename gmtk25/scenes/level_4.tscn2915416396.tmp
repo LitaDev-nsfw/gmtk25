@@ -1,0 +1,150 @@
+[gd_scene load_steps=8 format=3 uid="uid://vvtc36xkb560"]
+
+[ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_6j14n"]
+[ext_resource type="Texture2D" uid="uid://c4t18g0w3gh62" path="res://assets/visuals/lvl_4.png" id="2_rbbjd"]
+[ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_6j14n"]
+[ext_resource type="PackedScene" uid="uid://csc3plow6hraf" path="res://scenes/void.tscn" id="4_rbbjd"]
+[ext_resource type="PackedScene" uid="uid://bfl4tb5sxphi1" path="res://scenes/placeable_area.tscn" id="5_wom6i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6j14n"]
+font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbbjd"]
+size = Vector2(82.9847, 20)
+
+[node name="Level4" type="Node2D"]
+script = ExtResource("1_6j14n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(961, 544)
+scale = Vector2(2.76035, 2.39652)
+texture = ExtResource("2_rbbjd")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 920.0
+offset_top = 123.0
+offset_right = 960.0
+offset_bottom = 146.0
+text = "LEVEL1"
+label_settings = SubResource("LabelSettings_6j14n")
+
+[node name="Puzzle" parent="." instance=ExtResource("3_6j14n")]
+position = Vector2(273, 635)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(964, -1319)
+scale = Vector2(23.2573, 2.61271)
+shape = SubResource("RectangleShape2D_rbbjd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(979, 2504)
+scale = Vector2(23.2573, 2.61271)
+shape = SubResource("RectangleShape2D_rbbjd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-94, 537)
+rotation = -1.56659
+scale = Vector2(51.0748, 10.3227)
+shape = SubResource("RectangleShape2D_rbbjd")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(2170, 562)
+rotation = 1.56721
+scale = Vector2(46.8418, 22.8852)
+shape = SubResource("RectangleShape2D_rbbjd")
+
+[node name="Void" type="Node2D" parent="."]
+
+[node name="Void" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(649, 1107)
+scale = Vector2(12.9683, 5.85189)
+
+[node name="Void2" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(230, 1085)
+scale = Vector2(16.1337, 6.59864)
+
+[node name="Void3" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(134, 802)
+scale = Vector2(16.1337, 6.59864)
+
+[node name="Void4" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(1252, 796)
+scale = Vector2(16.1337, 6.59864)
+
+[node name="Void5" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(1424, 1085)
+scale = Vector2(16.1337, 6.59864)
+
+[node name="Void6" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(1618, 643)
+scale = Vector2(16.1337, 6.59864)
+
+[node name="Void7" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(1571, 340)
+scale = Vector2(16.1337, 6.59864)
+
+[node name="Void8" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(1202, 125)
+scale = Vector2(16.1337, 6.59864)
+
+[node name="Void9" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(771, 11.9999)
+scale = Vector2(16.1337, 6.59864)
+
+[node name="Void10" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(1028, 1078)
+scale = Vector2(16.1337, 6.59864)
+
+[node name="Void11" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(670, 624)
+scale = Vector2(25.2831, 1.93561)
+
+[node name="Void13" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(322, 74.9999)
+scale = Vector2(25.2831, 1.93561)
+
+[node name="Void14" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(294, -371)
+scale = Vector2(25.2831, 1.93561)
+
+[node name="Void12" parent="Void" instance=ExtResource("4_rbbjd")]
+position = Vector2(1135, -259)
+scale = Vector2(37.7354, 5.04044)
+
+[node name="PlaceableArea" type="Node2D" parent="."]
+
+[node name="PlaceableArea" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
+position = Vector2(233, 1262)
+scale = Vector2(3.87321, 1.71944)
+
+[node name="PlaceableArea2" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
+position = Vector2(749, 1273)
+scale = Vector2(3.87321, 1.71944)
+
+[node name="PlaceableArea3" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
+position = Vector2(1291, 1270)
+scale = Vector2(3.87321, 1.71944)
+
+[node name="PlaceableArea4" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
+position = Vector2(1782, 1270)
+scale = Vector2(3.87321, 1.71944)
+
+[node name="PlaceableArea5" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
+position = Vector2(658, 756)
+scale = Vector2(3.87321, 1.71944)
+
+[node name="PlaceableArea6" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
+position = Vector2(358, 188)
+scale = Vector2(3.87321, 1.71944)
+
+[node name="PlaceableArea7" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
+position = Vector2(387, -277)
+scale = Vector2(3.87321, 1.71944)
+
+[node name="PlaceableArea8" parent="PlaceableArea" instance=ExtResource("5_wom6i")]
+position = Vector2(1697, -363)
+scale = Vector2(3.87321, 1.71944)
+
+[connection signal="change_level" from="Puzzle" to="." method="_change_level"]

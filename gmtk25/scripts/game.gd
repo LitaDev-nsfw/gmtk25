@@ -4,6 +4,8 @@ var level1 : PackedScene = preload("res://scenes/level_1.tscn")
 var level2 : PackedScene = preload("res://scenes/level_2.tscn")
 var level3 : PackedScene = preload("res://scenes/level_3.tscn")
 var level4 : PackedScene = preload("res://scenes/level_4.tscn")
+var level5 : PackedScene = preload("res://scenes/level_5.tscn")
+
 var delta_sum : float = 0
 @onready var level_1: Level = $Level1
 @onready var player: Player = $Player
@@ -43,7 +45,7 @@ func _on_player_change_level() -> void:
 	var current_level_name = current_level.name
 	if current_level:
 		var next_level : Level = null
-		
+		player.deactivate_camera()
 		# there will be special logic in some cases, ie, go from lvl2 to lvl2 again.
 		match (current_level_name):
 			"Level1":
@@ -51,9 +53,10 @@ func _on_player_change_level() -> void:
 			"Level2":
 				next_level = create_next_level(level3)
 			"Level3":
+				player.activate_camera()
 				next_level = create_next_level(level4)
 			"Level4":
-				next_level = create_next_level(level1)
+				next_level = create_next_level(level5)
 		
 		if next_level != null:
 			transition(next_level, current_level)
@@ -93,7 +96,7 @@ func _repeat_level() -> void:
 	var current_level_name = current_level.name
 	if current_level:
 		var next_level : Level = null
-		
+		player.deactivate_camera()
 		match (current_level_name):
 			"Level1":
 				next_level = create_next_level(level1)
@@ -116,7 +119,6 @@ func transition(next_level : Node, current_level : Node) -> void:
 		tween.tween_property(color_rect, "scale", Vector2(5,5), 2)
 		tween.tween_property(color_rect, "position", Vector2(-1000, -1000), 1.5)
 		await tween.finished
-		player.reset_pos()
 		if current_level != null and next_level != null:
 			remove_child(current_level)
 			current_level.queue_free()
@@ -126,6 +128,7 @@ func transition(next_level : Node, current_level : Node) -> void:
 			tween = create_tween().set_parallel()
 			tween.tween_property(color_rect, "modulate", Color.TRANSPARENT, 1.5)
 			tween.tween_property(color_rect, "scale", Vector2(1,1), 1.5)
+			player.reset_pos(next_level.marker_2d.position)
 
 func transition_songs(next_level : Node, current_level : Node) -> void: 
 	if current_level != null and next_level != null:

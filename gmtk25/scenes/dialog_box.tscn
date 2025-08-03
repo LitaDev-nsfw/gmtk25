@@ -2,90 +2,32 @@
 
 [ext_resource type="Texture2D" uid="uid://cwsajgkrdv3im" path="res://assets/visuals/square.png" id="1_tihiy"]
 [ext_resource type="Script" uid="uid://gf0pttrufnwg" path="res://scripts/dialog_box.gd" id="2_df88m"]
-
-[sub_resource type="FontFile" id="FontFile_tihiy"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/15/0/ascent = 0.0
-cache/0/15/0/descent = 0.0
-cache/0/15/0/underline_position = 0.0
-cache/0/15/0/underline_thickness = 0.0
-cache/0/15/0/scale = 1.0
-cache/0/14/0/ascent = 0.0
-cache/0/14/0/descent = 0.0
-cache/0/14/0/underline_position = 0.0
-cache/0/14/0/underline_thickness = 0.0
-cache/0/14/0/scale = 1.0
-cache/0/13/0/ascent = 0.0
-cache/0/13/0/descent = 0.0
-cache/0/13/0/underline_position = 0.0
-cache/0/13/0/underline_thickness = 0.0
-cache/0/13/0/scale = 1.0
-cache/0/12/0/ascent = 0.0
-cache/0/12/0/descent = 0.0
-cache/0/12/0/underline_position = 0.0
-cache/0/12/0/underline_thickness = 0.0
-cache/0/12/0/scale = 1.0
-cache/0/11/0/ascent = 0.0
-cache/0/11/0/descent = 0.0
-cache/0/11/0/underline_position = 0.0
-cache/0/11/0/underline_thickness = 0.0
-cache/0/11/0/scale = 1.0
-cache/0/10/0/ascent = 0.0
-cache/0/10/0/descent = 0.0
-cache/0/10/0/underline_position = 0.0
-cache/0/10/0/underline_thickness = 0.0
-cache/0/10/0/scale = 1.0
-cache/0/9/0/ascent = 0.0
-cache/0/9/0/descent = 0.0
-cache/0/9/0/underline_position = 0.0
-cache/0/9/0/underline_thickness = 0.0
-cache/0/9/0/scale = 1.0
-cache/0/8/0/ascent = 0.0
-cache/0/8/0/descent = 0.0
-cache/0/8/0/underline_position = 0.0
-cache/0/8/0/underline_thickness = 0.0
-cache/0/8/0/scale = 1.0
-cache/0/7/0/ascent = 0.0
-cache/0/7/0/descent = 0.0
-cache/0/7/0/underline_position = 0.0
-cache/0/7/0/underline_thickness = 0.0
-cache/0/7/0/scale = 1.0
-cache/0/6/0/ascent = 0.0
-cache/0/6/0/descent = 0.0
-cache/0/6/0/underline_position = 0.0
-cache/0/6/0/underline_thickness = 0.0
-cache/0/6/0/scale = 1.0
+[ext_resource type="Texture2D" uid="uid://d2at1fdvohdne" path="res://assets/visuals/ART/GMTK game jam 25/turn around arrow hover use.png" id="3_df88m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u0dnc"]
-font = SubResource("FontFile_tihiy")
-font_size = 10
+font_size = 17
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4x21"]
 size = Vector2(20.557, 21.2513)
 
 [node name="DialogBox" type="Sprite2D"]
-scale = Vector2(0.0968747, 0.0318612)
+scale = Vector2(0.732385, 0.313953)
 texture = ExtResource("1_tihiy")
 script = ExtResource("2_df88m")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -412.904
-offset_top = -313.861
-offset_right = -236.904
-offset_bottom = -280.861
+offset_left = -400.063
+offset_top = -595.63
+offset_right = -227.063
+offset_bottom = -400.63
 rotation = -0.00117617
-scale = Vector2(4.70015, 19.5156)
-text = "This paiting was made by an unknown artist"
+scale = Vector2(4.83789, 6.23262)
+text = "One thing Dalí makes very clear, is that time passes but leaves behind memories; "
 label_settings = SubResource("LabelSettings_u0dnc")
-autowrap_mode = 2
+vertical_alignment = 1
+autowrap_mode = 3
+justification_flags = 0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 1073741824
@@ -95,5 +37,10 @@ collision_mask = 1073741824
 position = Vector2(15.2506, 31.4143)
 scale = Vector2(54.7565, 50.2122)
 shape = SubResource("RectangleShape2D_r4x21")
+
+[node name="TurnAroundArrowHoverUse" type="Sprite2D" parent="."]
+position = Vector2(551.622, 305.778)
+scale = Vector2(0.507352, 0.462503)
+texture = ExtResource("3_df88m")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

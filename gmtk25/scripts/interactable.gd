@@ -8,7 +8,7 @@ signal change_level
 signal repeat_level
 var child_scene : Node
 @onready var background: Sprite2D = $Background
-
+var player_is_in : bool = false
 func _ready() -> void:
 	if scene_to_load != null:
 		var scene = scene_to_load.instantiate()
@@ -36,13 +36,13 @@ func _on_collision_component_open_puzzle() -> void:
 				hide_mirror()
 
 func _on_collision_component_close_puzzle() -> void:
-	child_scene.hide()
 	var dialog_box = child_scene.find_child("DialogBox")
 	if dialog_box != null:
 		dialog_box.reset_box()
+		
+	child_scene.hide()
 	background.hide()
 	Globals.player_can_move = true
-	
 
 func _change_level():
 	change_level.emit()
@@ -54,3 +54,21 @@ func hide_mirror():
 	child_scene.hide()
 	background.hide()
 	EventSystem.play_mirror_line.emit()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if player_is_in and child_scene != null and  child_scene is PlacePlankInteractable:
+		if event.is_action("place_plank") and event.pressed:
+			EventSystem.call_place_plank.emit()
+			queue_free()
+
+func _on_collision_component_area_entered(area: Area2D) -> void:
+	player_is_in = true
+	#modulate = Color.RED
+	#if child_scene:
+		#child_scene.modulate = Color.RED
+
+func _on_collision_component_area_exited(area: Area2D) -> void:
+	player_is_in = false
+	#modulate = Color.WHITE
+	#if child_scene:
+		#child_scene.modulate = Color.WHITE
