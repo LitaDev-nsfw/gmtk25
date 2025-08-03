@@ -1,15 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6667nllbyw0f"]
+[gd_scene load_steps=14 format=3 uid="uid://c6667nllbyw0f"]
 
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_wcwf6"]
-[ext_resource type="Texture2D" uid="uid://bq1f4b2b26qrn" path="res://assets/visuals/lvl_5.png" id="2_tbt7t"]
+[ext_resource type="Texture2D" uid="uid://r40goesv03h4" path="res://assets/visuals/ART/GMTK game jam 25/level_5_base.png" id="2_ak5vt"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_cynta"]
 [ext_resource type="Script" uid="uid://c3h2duhep3bec" path="res://scripts/animated.gd" id="5_ij176"]
 [ext_resource type="Texture2D" uid="uid://b1w7i2sehqr6p" path="res://assets/visuals/clock.png" id="5_tbt7t"]
 [ext_resource type="Texture2D" uid="uid://cqcrgq3ulohxj" path="res://assets/visuals/wallclock.png" id="6_cynta"]
 [ext_resource type="Texture2D" uid="uid://dhsi24pq3uqv6" path="res://assets/visuals/rain.png" id="7_ak5vt"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_6j14n"]
-font_size = 40
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wcwf6"]
 size = Vector2(82.9847, 20)
@@ -138,16 +135,8 @@ script = ExtResource("1_wcwf6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(964, 555)
-scale = Vector2(4.92821, 2.89558)
-texture = ExtResource("2_tbt7t")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 920.0
-offset_top = 123.0
-offset_right = 960.0
-offset_bottom = 146.0
-text = "LEVEL1"
-label_settings = SubResource("LabelSettings_6j14n")
+scale = Vector2(1.05372, 0.932184)
+texture = ExtResource("2_ak5vt")
 
 [node name="Puzzle" parent="." instance=ExtResource("3_cynta")]
 position = Vector2(830, 220)
@@ -166,13 +155,13 @@ scale = Vector2(23.2573, 2.61271)
 shape = SubResource("RectangleShape2D_wcwf6")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-33.0001, 542)
+position = Vector2(292, 547)
 rotation = -1.56659
 scale = Vector2(17.1748, 5.82034)
 shape = SubResource("RectangleShape2D_wcwf6")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1867, 511)
+position = Vector2(1631, 513)
 rotation = 1.56721
 scale = Vector2(19.9547, 7.19743)
 shape = SubResource("RectangleShape2D_wcwf6")
@@ -209,5 +198,11 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_vqwqk")
 }
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(790, 952)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(965, 560)
 
 [connection signal="change_level" from="Puzzle" to="." method="_change_level"]

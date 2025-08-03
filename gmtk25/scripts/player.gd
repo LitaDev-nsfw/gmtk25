@@ -6,13 +6,17 @@ const SPEED = 400.0
 @onready var plank_label: Label = $PlankLabel
 var plank_count : int = 0
 var last_direction: Vector2 = Vector2.ZERO
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera_2d: Camera2D = $Camera2D
 
 func _ready() -> void:
 	EventSystem.connect("player_picked_up_plank", pick_up_plank)
 	EventSystem.connect("remove_player_planks", remove_planks)
+	EventSystem.connect("call_place_plank", place_plank)
 	label.hide()
 	plank.hide()
 	plank_label.hide()
+	deactivate_camera()
 	
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -26,6 +30,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
 	
 	if direction_y:
 		velocity.y = direction_y * SPEED
@@ -37,15 +42,26 @@ func _physics_process(delta: float) -> void:
 		
 	if velocity != Vector2(0,0):
 		last_direction = velocity
+	
+	#TODO, fix animations left and right
+	if last_direction.y >= 0:
+		animated_sprite_2d.play("forward")
+	else:
+		animated_sprite_2d.play("back")
 
 # do some animation?
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	pass
 
-func reset_pos() -> void:
-	#var tween = create_tween()
-	#tween.tween_property(self, "position", Vector2(1000.0, 2185.0), 0.5)
-	position = Vector2(1000.0, 2185.0)
+func reset_pos(pos) -> void:
+	set_physics_process(false)
+	collision_layer = 0
+	var tween = create_tween()
+	tween.tween_property(self, "position", pos, 0.5)
+	await get_tree().create_timer(1).timeout
+	set_physics_process(true)
+	collision_layer = 1 
+	
 func show_label() -> void:
 	Globals.player_can_move = true
 	label.text = ""
@@ -82,3 +98,9 @@ func remove_planks():
 func _input(event: InputEvent) -> void:
 	if event.is_action("place") and event.is_pressed():
 		place_plank()
+
+func activate_camera() -> void:
+	camera_2d.enabled = true
+
+func deactivate_camera() -> void:
+	camera_2d.enabled = false

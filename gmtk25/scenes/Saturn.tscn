@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://doohuqmr2ujx5"]
+[gd_scene load_steps=7 format=3 uid="uid://bt1tmpbdixcmt"]
 
 [ext_resource type="Script" uid="uid://ef51hj0i1ffm" path="res://scripts/paiting.gd" id="1_o6fhm"]
-[ext_resource type="Texture2D" uid="uid://uaifruwo5cx0" path="res://icon.svg" id="2_y08o3"]
+[ext_resource type="Texture2D" uid="uid://d2at1fdvohdne" path="res://assets/visuals/ART/GMTK game jam 25/turn around arrow hover use.png" id="3_4eyly"]
 [ext_resource type="Texture2D" uid="uid://cas2gr58hfouu" path="res://assets/visuals/Saturn_Painting.png" id="3_o6fhm"]
+[ext_resource type="Texture2D" uid="uid://ci7fi688pyc1e" path="res://assets/visuals/ART/GMTK game jam 25/Saturn_Painting_zoom.png" id="3_y08o3"]
 [ext_resource type="PackedScene" uid="uid://lfwj3udiip6s" path="res://scenes/dialog_box.tscn" id="4_x3d4n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0dnc"]
@@ -13,13 +14,19 @@ scale = Vector2(5.27103, 3.81552)
 script = ExtResource("1_o6fhm")
 
 [node name="FirstSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.74, 1.90265)
-texture = ExtResource("2_y08o3")
+position = Vector2(-0.569149, -21.2291)
+scale = Vector2(0.215578, 0.200013)
+texture = ExtResource("3_o6fhm")
+
+[node name="TurnAroundArrowHoverUse" type="Sprite2D" parent="FirstSprite"]
+position = Vector2(322.973, 431.105)
+scale = Vector2(0.254383, 0.252785)
+texture = ExtResource("3_4eyly")
 
 [node name="SecondSprite" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.0696594, 0.300807)
-texture = ExtResource("3_o6fhm")
+position = Vector2(-4.93262, -19.9186)
+scale = Vector2(0.165119, 0.271962)
+texture = ExtResource("3_y08o3")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(-0.402605, -0.314448)
@@ -32,9 +39,10 @@ scale = Vector2(51.356, 15.686)
 shape = SubResource("RectangleShape2D_u0dnc")
 
 [node name="DialogBox" parent="." instance=ExtResource("4_x3d4n")]
-position = Vector2(-6.26063, 103.525)
+position = Vector2(-2.65603, 98.807)
 rotation = -0.000650526
-dialog = Array[String](["\"Saturn Devouring His Son\"", "Painted by Francisco Goya", "Various interpretations of the meaning of the picture have been offered:", "The conflict between youth and old age ", "Time as the devourer of all things..."])
+scale = Vector2(0.0905909, 0.0901045)
+dialog = Array[String](["\"Saturn Devouring His Son\"", "Painted by Francisco Goya, 1823", "Various interpretations of the meaning of the picture have been offered:", "The conflict between youth and old age ", "Time as the devourer of all things..."])
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

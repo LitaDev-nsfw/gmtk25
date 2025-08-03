@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var combination = 3421
-@export var wrong_combination = 4444
+@export var combination = 1823
+@export var wrong_combination : Array[String]= ["1931"]
 
 signal puzzle_solved
 signal loop_level
@@ -19,5 +19,5 @@ func _on__check_combination() -> void:
 	
 	if str == str(combination):
 		puzzle_solved.emit()
-	elif str == str(wrong_combination):
+	elif str in wrong_combination:
 		loop_level.emit()

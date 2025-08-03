@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfl4tb5sxphi1"]
+[gd_scene load_steps=3 format=3 uid="uid://bfl4tb5sxphi1"]
 
-[ext_resource type="Script" uid="uid://dngeqkybey2k2" path="res://scripts/placeable_area.gd" id="1_1v15d"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="2_iexh1"]
 [ext_resource type="PackedScene" uid="uid://dhyyd16wk4g5x" path="res://scenes/place_plank_interactable.tscn" id="3_iexh1"]
 
 [node name="PlaceableArea" type="Node2D"]
-script = ExtResource("1_1v15d")
 
 [node name="Interactable" parent="." instance=ExtResource("2_iexh1")]
 scene_to_load = ExtResource("3_iexh1")

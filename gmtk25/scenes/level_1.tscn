@@ -1,17 +1,44 @@
-[gd_scene load_steps=9 format=3 uid="uid://do7a5j4m5dryv"]
+[gd_scene load_steps=21 format=3 uid="uid://do7a5j4m5dryv"]
 
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_rus8k"]
-[ext_resource type="Texture2D" uid="uid://c7nj1bw6rwafu" path="res://assets/visuals/Level1.png" id="2_5xbjy"]
+[ext_resource type="Texture2D" uid="uid://l86rhfyvv1wi" path="res://assets/visuals/ART/GMTK game jam 25/room 1 base.png" id="2_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_rus8k"]
-[ext_resource type="PackedScene" uid="uid://cuwihsmxsnv6x" path="res://scenes/ClockPainting.tscn" id="4_fcfvj"]
-[ext_resource type="PackedScene" uid="uid://doohuqmr2ujx5" path="res://scenes/Saturn.tscn" id="6_pa8r4"]
-[ext_resource type="PackedScene" uid="uid://djdf11yg2sdxx" path="res://scenes/Atropos.tscn" id="7_pa8r4"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_rus8k"]
-font_size = 40
+[ext_resource type="PackedScene" uid="uid://bhkwhrkoq3ncf" path="res://scenes/ClockPainting.tscn" id="4_fcfvj"]
+[ext_resource type="PackedScene" uid="uid://xnfdv3pgvos3" path="res://scenes/picture_1.tscn" id="5_7gny6"]
+[ext_resource type="PackedScene" uid="uid://dljaugmh28tcg" path="res://scenes/Atropos.tscn" id="5_fcfvj"]
+[ext_resource type="PackedScene" uid="uid://mdfb0dp0k63o" path="res://scenes/coth_over_paiting.tscn" id="6_2os1m"]
+[ext_resource type="Texture2D" uid="uid://bec24bnopn3d2" path="res://assets/visuals/ART/GMTK game jam 25/rug room 1.png" id="7_pa8r4"]
+[ext_resource type="PackedScene" uid="uid://bns6e1o8g2e62" path="res://scenes/rug.tscn" id="8_2os1m"]
+[ext_resource type="Texture2D" uid="uid://f3ky70jrph33" path="res://assets/visuals/ART/GMTK game jam 25/cloth over easel .png" id="8_15mv3"]
+[ext_resource type="Texture2D" uid="uid://dld1iv77ai3ar" path="res://assets/visuals/ART/GMTK game jam 25/door closed.png" id="9_e3sih"]
+[ext_resource type="Texture2D" uid="uid://cgv8sgx627xf0" path="res://assets/visuals/ART/GMTK game jam 25/door open.png" id="10_2y5yt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa8r4"]
-size = Vector2(82.9847, 20)
+size = Vector2(98.9312, 18.4825)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2os1m"]
+size = Vector2(97.9009, 14.7322)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go7sj"]
+size = Vector2(82.0151, 30.6708)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3sih"]
+size = Vector2(68.0416, 133.557)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gny6"]
+size = Vector2(37.4042, 18.9715)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y5yt"]
+size = Vector2(111.845, 28.161)
+
+[sub_resource type="Gradient" id="Gradient_y0kc7"]
+offsets = PackedFloat32Array(0, 0.455674)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e3sih"]
+gradient = SubResource("Gradient_y0kc7")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Level1" type="Node2D"]
 position = Vector2(7, -2)
@@ -19,36 +46,45 @@ script = ExtResource("1_rus8k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(954, 543)
-scale = Vector2(11.1279, 6.42857)
-texture = ExtResource("2_5xbjy")
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_fcfvj")
 
-[node name="Interactable" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(940, 265)
+[node name="NumberLock" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(969, 254)
+scale = Vector2(0.66295, 1.52777)
 is_puzzle = true
 
 [node name="ClockPainting" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(1743, 343)
+position = Vector2(1423, 360)
 scene_to_load = ExtResource("4_fcfvj")
 
+[node name="Picture1" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(704, 178)
+scale = Vector2(0.687869, 1.01426)
+scene_to_load = ExtResource("5_7gny6")
+
 [node name="AtroposPainting" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(1466, 691)
-scene_to_load = ExtResource("7_pa8r4")
+position = Vector2(1266, 704)
+scale = Vector2(0.943597, 1.55556)
+scene_to_load = ExtResource("5_fcfvj")
 
 [node name="SaturnPainting" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(272, 378)
-scene_to_load = ExtResource("6_pa8r4")
+position = Vector2(585, 474)
+scale = Vector2(1.5303, 0.879799)
+scene_to_load = ExtResource("6_2os1m")
+
+[node name="ClothOverEasel" type="Sprite2D" parent="SaturnPainting"]
+position = Vector2(7.62036, -141.63)
+scale = Vector2(1.22846, 1.90309)
+texture = ExtResource("8_15mv3")
 
 [node name="Rug" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(724, 612)
-scene_to_load = ExtResource("7_pa8r4")
+position = Vector2(882, 705)
+scene_to_load = ExtResource("8_2os1m")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 920.0
-offset_top = 123.0
-offset_right = 960.0
-offset_bottom = 146.0
-text = "LEVEL1"
-label_settings = SubResource("LabelSettings_rus8k")
+[node name="RugRoom1" type="Sprite2D" parent="Rug"]
+position = Vector2(-31, -20)
+texture = ExtResource("7_pa8r4")
 
 [node name="Audio" type="Node" parent="."]
 
@@ -59,30 +95,106 @@ position = Vector2(1744, 947)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2(964, 0)
-scale = Vector2(23.2573, 2.61271)
+scale = Vector2(18.9744, 2.8345)
+shape = SubResource("RectangleShape2D_pa8r4")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1517, 553)
+scale = Vector2(9.14548, 2.47376)
+shape = SubResource("RectangleShape2D_pa8r4")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1175.45, 957.874)
+scale = Vector2(1.06041, -10.0499)
 shape = SubResource("RectangleShape2D_pa8r4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
-position = Vector2(974, 1089)
-scale = Vector2(23.2573, 2.61271)
+position = Vector2(981, 205)
+scale = Vector2(18.9744, 2.8345)
 shape = SubResource("RectangleShape2D_pa8r4")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-33.0001, 542)
+position = Vector2(327, 542)
 rotation = -1.56659
-scale = Vector2(17.1748, 5.82034)
+scale = Vector2(14.012, 6.31442)
 shape = SubResource("RectangleShape2D_pa8r4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1867, 511)
+position = Vector2(1567, 466)
 rotation = 1.56721
-scale = Vector2(19.9547, 7.19743)
-shape = SubResource("RectangleShape2D_pa8r4")
+scale = Vector2(16.2799, 7.80841)
+shape = SubResource("RectangleShape2D_2os1m")
 
-[connection signal="change_level" from="Interactable" to="." method="_change_level"]
-[connection signal="repeat_level" from="Interactable" to="." method="_repeat_level"]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Walls"]
+position = Vector2(447.353, 904.316)
+rotation = 1.56721
+scale = Vector2(2.95341, -3.7222)
+shape = SubResource("RectangleShape2D_go7sj")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1399.48, 965.494)
+rotation = 1.56721
+scale = Vector2(2.95341, -3.7222)
+shape = SubResource("RectangleShape2D_e3sih")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1097.84, 585.758)
+rotation = 1.56721
+scale = Vector2(2.95341, -3.7222)
+shape = SubResource("RectangleShape2D_7gny6")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1566.56, 855.908)
+rotation = 1.56721
+scale = Vector2(2.95341, -3.7222)
+shape = SubResource("RectangleShape2D_e3sih")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Walls"]
+position = Vector2(560.818, 309.651)
+rotation = 1.56721
+scale = Vector2(2.95341, -3.7222)
+shape = SubResource("RectangleShape2D_2y5yt")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(941, 262)
+
+[node name="DoorClosed" type="Sprite2D" parent="."]
+position = Vector2(938, 263)
+texture = ExtResource("9_e3sih")
+
+[node name="DoorOpen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(951, 271)
+texture = ExtResource("10_2y5yt")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(515, 37.29)
+scale = Vector2(5.64232, 4.05121)
+color = Color(1, 1, 0.176471, 1)
+texture = SubResource("GradientTexture2D_e3sih")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(1376, 45)
+scale = Vector2(4.77452, 3.86354)
+color = Color(1, 1, 0.176471, 1)
+texture = SubResource("GradientTexture2D_e3sih")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(-740, -78.7099)
+scale = Vector2(0.342615, 0.473113)
+color = Color(0.623988, 0.454981, 0.413849, 1)
+energy = 0.44
+blend_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(965, 560)
+
+[connection signal="change_level" from="NumberLock" to="." method="_change_level"]
+[connection signal="repeat_level" from="NumberLock" to="." method="_repeat_level"]
 [connection signal="change_level" from="ClockPainting" to="." method="_change_level"]
 [connection signal="repeat_level" from="ClockPainting" to="." method="_repeat_level"]
+[connection signal="change_level" from="Picture1" to="." method="_change_level"]
+[connection signal="repeat_level" from="Picture1" to="." method="_repeat_level"]
 [connection signal="change_level" from="AtroposPainting" to="." method="_change_level"]
 [connection signal="repeat_level" from="AtroposPainting" to="." method="_repeat_level"]
 [connection signal="change_level" from="SaturnPainting" to="." method="_change_level"]

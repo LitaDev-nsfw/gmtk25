@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://du6h2oyy5sg27"]
+[gd_scene load_steps=6 format=3 uid="uid://du6h2oyy5sg27"]
 
 [ext_resource type="Script" uid="uid://bmgn7b7h20hfs" path="res://scripts/interactable.gd" id="1_3asjn"]
 [ext_resource type="PackedScene" uid="uid://cpyce2i7r3wyc" path="res://scenes/number_lock.tscn" id="2_t8qc4"]
 [ext_resource type="Texture2D" uid="uid://cwsajgkrdv3im" path="res://assets/visuals/square.png" id="3_o0ci7"]
 [ext_resource type="PackedScene" uid="uid://d3apiw34m0up3" path="res://scenes/collision_component.tscn" id="3_wsi0i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w4xns"]
+font_size = 176
 
 [node name="Interactable" type="Node2D"]
 script = ExtResource("1_3asjn")
@@ -12,13 +15,28 @@ scene_to_load = ExtResource("2_t8qc4")
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(0, 0, 0, 1)
+z_index = 1000
 position = Vector2(165.5, 308.5)
 scale = Vector2(4.64826, 2.74375)
 texture = ExtResource("3_o0ci7")
+
+[node name="Label" type="Label" parent="Background"]
+top_level = true
+z_index = 1001
+offset_left = 1666.0
+offset_top = 69.0
+offset_right = 2313.0
+offset_bottom = 424.0
+scale = Vector2(0.347855, 0.325147)
+text = "(E) Exit
+"
+label_settings = SubResource("LabelSettings_w4xns")
 
 [node name="CollisionComponent" parent="." instance=ExtResource("3_wsi0i")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[connection signal="area_entered" from="CollisionComponent" to="." method="_on_collision_component_area_entered"]
+[connection signal="area_exited" from="CollisionComponent" to="." method="_on_collision_component_area_exited"]
 [connection signal="close_puzzle" from="CollisionComponent" to="." method="_on_collision_component_close_puzzle"]
 [connection signal="open_puzzle" from="CollisionComponent" to="." method="_on_collision_component_open_puzzle"]

@@ -1,11 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://djg2j1nqsjehp"]
+[gd_scene load_steps=7 format=3 uid="uid://djg2j1nqsjehp"]
 
 [ext_resource type="Script" uid="uid://b6ndsdjj8fvfw" path="res://scripts/level.gd" id="1_uwxec"]
-[ext_resource type="Texture2D" uid="uid://cbu314soo330p" path="res://assets/visuals/Level3.png" id="2_uwxec"]
+[ext_resource type="Texture2D" uid="uid://dpndl7bcq45qt" path="res://assets/visuals/ART/GMTK game jam 25/room3 base.png" id="2_uwxec"]
 [ext_resource type="PackedScene" uid="uid://du6h2oyy5sg27" path="res://scenes/interactable.tscn" id="3_uwxec"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_uwxec"]
-font_size = 40
+[ext_resource type="Texture2D" uid="uid://dld1iv77ai3ar" path="res://assets/visuals/ART/GMTK game jam 25/door closed.png" id="4_ah8om"]
+[ext_resource type="Texture2D" uid="uid://cgv8sgx627xf0" path="res://assets/visuals/ART/GMTK game jam 25/door open.png" id="5_p6vls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwxec"]
 size = Vector2(82.9847, 20)
@@ -14,17 +13,9 @@ size = Vector2(82.9847, 20)
 script = ExtResource("1_uwxec")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(962.5, 539.5)
-scale = Vector2(11.1754, 6.51205)
+position = Vector2(954, 538)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_uwxec")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 920.0
-offset_top = 123.0
-offset_right = 960.0
-offset_bottom = 146.0
-text = "LEVEL1"
-label_settings = SubResource("LabelSettings_uwxec")
 
 [node name="Puzzle" parent="." instance=ExtResource("3_uwxec")]
 position = Vector2(529, 166)
@@ -42,15 +33,30 @@ scale = Vector2(23.2573, 2.61271)
 shape = SubResource("RectangleShape2D_uwxec")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-33.0001, 542)
+position = Vector2(336, 544)
 rotation = -1.56659
 scale = Vector2(17.1748, 5.82034)
 shape = SubResource("RectangleShape2D_uwxec")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1867, 511)
+position = Vector2(1588, 520)
 rotation = 1.56721
 scale = Vector2(19.9547, 7.19743)
 shape = SubResource("RectangleShape2D_uwxec")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(947, 263)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(965, 560)
+
+[node name="DoorClosed" type="Sprite2D" parent="."]
+position = Vector2(940, 255)
+texture = ExtResource("4_ah8om")
+
+[node name="DoorOpen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(946, 256)
+texture = ExtResource("5_p6vls")
 
 [connection signal="change_level" from="Puzzle" to="." method="_change_level"]

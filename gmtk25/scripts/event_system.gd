@@ -5,3 +5,4 @@ signal player_picked_up_plank
 signal player_fell
 signal remove_player_planks
 signal place_plank
+signal call_place_plank
